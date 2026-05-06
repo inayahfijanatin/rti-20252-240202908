@@ -67,33 +67,36 @@ Masalah riset yang layak harus memenuhi 5 kriteria:
 PROBLEM STATEMENT BUILDER
 
 Domain & Konteks
-  Domain   : ____________________
-  Konteks  : ____________________
+  Domain   : Sistem Informasi
+  Konteks  : Sistem absensi siswa berbasis QR Code di lingkungan pendidikan
 
 System Context
-  Input       : ____________________
-  Process     : ____________________
-  Output      : ____________________
-  Outcome     : ____________________
-  Constraints : ____________________
-  Stakeholders: ____________________
+  Input       : Data kehadiran siswa (scan QR Code)
+  Process     : Sistem memproses hasil scan dan mencatat ke database
+  Output      : Data absensi siswa secara digital
+  Outcome     : Meningkatkan efisiensi dan akurasi absensi
+  Constraints :Koneksi internet, perangkat pengguna, potensi penyalahgunaan QR 
+  Stakeholders: Siswa, guru, admin sekolah
 
 Fenomena → Problem
-  Fenomena yang diamati             : ____________________
-  Gejala (symptom) yang terukur     : ____________________
-  Masalah yang didiagnosis          : ____________________
-  Masalah riset (researchable)      : ____________________
-  Variabel yang terukur             : ____________________
+  Fenomena yang diamati : Sekolah mulai beralih dari absensi manual ke sistem digital
+  Gejala (symptom) yang terukur : Masih terjadi titip absen dan kesalahan pencatatan data
+  Masalah yang didiagnosis (root cause) : Sistem absensi belum memiliki mekanisme validasi kehadiran yang kuat
+  Masalah riset (researchable) : Belum ada evaluasi yang jelas mengenai efektivitas sistem absensi berbasis QR Code dalam meningkatkan akurasi dan keandalan data kehadiran
+  Variabel yang terukur :
+    - Tingkat keakuratan data absensi
+    - Waktu proses absensi
+    - Jumlah kesalahan atau manipulasi data
 
 Problem Quality Check
-  [ ] Clarity — Apakah satu orang membaca akan paham?
-  [ ] Measurability — Apakah ada metrik kuantitatif?
-  [ ] Relevance — Apakah penting untuk domain?
-  [ ] Testability — Apakah bisa gagal?
-  [ ] Impact — Apakah ada kontribusi jika terjawab?
+  [Ya ] Clarity — Apakah satu orang membaca akan paham?
+  [Ya] Measurability — Apakah ada metrik kuantitatif?
+  [Ya] Relevance — Apakah penting untuk domain?
+  [Ya] Testability — Apakah bisa gagal?
+  [Ya] Impact — Apakah ada kontribusi jika terjawab?
 
 Problem Statement (1 paragraf):
-  ____________________
+  Perkembangan sistem informasi mendorong digitalisasi proses absensi di lingkungan pendidikan, salah satunya melalui penggunaan QR Code. Namun, meskipun sistem ini dianggap lebih efisien dibandingkan metode manual, masih terdapat permasalahan terkait validitas dan keakuratan data kehadiran, seperti potensi penyalahgunaan QR Code dan ketergantungan pada kondisi teknis tertentu. Oleh karena itu, diperlukan penelitian untuk mengevaluasi efektivitas sistem absensi berbasis QR Code dalam meningkatkan akurasi, efisiensi, dan keandalan data kehadiran siswa.
 ```
 
 ---
@@ -102,17 +105,17 @@ Problem Statement (1 paragraf):
 
 Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Problem Formation Model.
 
-**Topik awal:** ________________________________________
+**Topik awal:** Sistem absensi berbasis QR Code
 
 | Tahap | Hasil |
 |-------|-------|
-| Reality | *Contoh: Aplikasi e-commerce sering ditinggalkan saat checkout* |
-| Observed Issue (Symptom) | *Contoh: Bounce rate checkout 68%* |
-| Diagnosed Problem (Root Cause) | |
-| Researchable Problem | |
-| Measurable Variable | |
+| Reality | Sekolah menggunakan sistem absensi digital |
+| Observed Issue (Symptom) | Masih terjadi kesalahan dan manipulasi absensi |
+| Diagnosed Problem (Root Cause) |Sistem belum mampu memverifikasi kehadiran secara akurat |
+| Researchable Problem |Belum ada evaluasi efektivitas sistem QR Code dalam meningkatkan keakuratan absensi |
+| Measurable Variable | Akurasi data, waktu absensi, tingkat kesalahan|
 
-**Apakah terjebak solution-first thinking?** [ ] Ya / [ ] Tidak
+**Apakah terjebak solution-first thinking?** [ ] Ya / [ Yang ini, Jawabannya] Tidak
 > Jika ya, kembali ke tahap mana? ________________________
 
 ---
@@ -123,14 +126,14 @@ Gambarkan konteks sistem dari masalah riset di Latihan 1.
 
 | Komponen | Deskripsi |
 |----------|----------|
-| Input | *Contoh: Request HTTP dari browser pengguna* |
-| Process | |
-| Output | |
-| Outcome | |
-| Constraints | |
-| Stakeholders | |
+| Input | Data scan QR Code dari siswa |
+| Process |Sistem membaca QR dan menyimpan data ke database |
+| Output | Data absensi digital|
+| Outcome | Proses absensi lebih cepat dan efisien|
+| Constraints |Internet, perangkat, potensi kecurangan |
+| Stakeholders | siswa, guru, admin|
 
-**Komponen mana yang paling relevan dengan masalah riset?** _______________
+**Komponen mana yang paling relevan dengan masalah riset?** Process (proses validasi data absensi)
 
 ---
 
