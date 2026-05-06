@@ -61,56 +61,55 @@ Dalam DSR, artefak **bukan tujuan akhir** — ia adalah instrumen untuk menghasi
 ## Template A.1 — Research Mindset Self-Assessment
 
 ```
-Nama Peneliti    : ____________________
-Tanggal          : ____________________
+Nama Peneliti    : Inayah Fijanatin
+Tanggal          : 30 April 2026
 
 1. Ketika membaca klaim "metode X 95% akurat":
-   - Pertanyaan pertama saya: ____________________
-   - Data yang dibutuhkan untuk verifikasi: ____________________
+   - Pertanyaan pertama saya: Apakah klaim tersebut didukung oleh desain eksperimen yang valid dan apakah metrik yang digunakan benar-benar merepresentasikan performa sistem?
+   - Data yang dibutuhkan untuk verifikasi: Distribusi dataset, metode evaluasi (train-test split atau cross-validation), metrik performa, serta baseline pembanding
 
 2. Posisi paradigma:
-   - Pendekatan: [ ] Positivis  [ ] Interpretivis  [ ] Design Science  [ ] Mixed
-   - Alasan: ____________________
+   - Pendekatan: [Ya] Positivis  [ ] Interpretivis  [Ya] Design Science  [ ] Mixed
+   - Alasan: Penelitian ini tidak hanya menguji efektivitas sistem secara kuantitatif, tetapi juga membangun artefak berupa sistem absensi berbasis QR Code. Oleh karena itu, pendekatan yang digunakan merupakan kombinasi antara pengujian empiris (positivis) dan pembangunan solusi (Design Science Research).
 
 3. Identifikasi distorsi:
-   - Asumsi tersembunyi: ____________________
-   - Sumber bias potensial: ____________________
-   - Langkah mitigasi: ____________________
+   - Asumsi tersembunyi: Sistem digital berbasis QR Code diasumsikan secara inheren lebih efektif dibandingkan sistem manual tanpa mempertimbangkan konteks implementasi
+   - Sumber bias potensial: Sampling terbatas pada satu institusi pendidikan serta kemungkinan bias penggunaan dalam kondisi jaringan yang stabil
+   - Langkah mitigasi: Melakukan replikasi studi di berbagai lingkungan, menggunakan data yang lebih beragam, serta mempertimbangkan variabel eksternal seperti infrastruktur teknologi
 
 4. Komitmen etika:
-   - Data yang tidak akan dimanipulasi: ____________________
-   - Batasan yang diakui sejak awal: ____________________
+   - Data yang tidak akan dimanipulasi: Seluruh hasil pengujian, termasuk hasil yang tidak sesuai harapan atau menunjukkan keterbatasan sistem
+   - Batasan yang diakui sejak awal: Ketergantungan sistem terhadap konektivitas internet, perangkat pengguna, serta potensi penyalahgunaan QR Code oleh pengguna
 ```
 
 ---
 
 ## Latihan 1 — Identifikasi Distorsi
-
-Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan performa." Telusuri setiap tahap Research Trust Model.
+Judul: Perancangan Sistem Informasi Absensi Siswa Menggunakan Teknologi QR Code Berbasis Website
+Penulis (Tahun): Yamin Nuryamin, dkk (2024)
 
 > **Panduan pencarian paper:** Gunakan [IEEE Xplore](https://ieeexplore.ieee.org), [ACM Digital Library](https://dl.acm.org), atau Google Scholar. Pilih paper **tahun 2020 ke atas**, di topik yang Anda minati: deteksi anomali, klasifikasi citra, NLP, keamanan siber, IoT, dsb.
->
+> link sumber paper : https://journal.universitassuryadarma.ac.id/index.php/jsi/article/view/1342
 > **Contoh domain TI:** "Deteksi anomali lalu-lintas jaringan menggunakan CNN — akurasi meningkat 94% vs baseline SVM 87%." Distorsi potensial: apakah dataset normal/anomali seimbang? Apakah hanya diuji pada satu vendor traffic?
 
 **Paper yang dipilih:**
-> Judul: _______________________________________________
-> Penulis (Tahun): ______________________________________
-> Sumber/Link DOI: _____________________________________
+> Judul: Perancangan Sistem Informasi Absensi Siswa Menggunakan Teknologi QR Code Berbasis Website
+> Penulis (Tahun): Yamin Nuryamin, dkk
+> Sumber/Link DOI: https://journal.universitassuryadarma.ac.id/index.php/jsi/article/view/1342 
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | *Contoh: Kumpulkan log server 30 hari* | *Contoh: Hanya ambil jam sibuk* |
-| Data → Processing | | |
-| Processing → Analysis | | |
-| Analysis → Inference | | |
-| Inference → Knowledge | | |
+| Reality → Data | Mengidentifikasi permasalahan absensi manual di lingkungan sekolah | Data observasi terbatas pada satu konteks institusi |
+| Data → Processing |Mengumpulkan kebutuhan sistem dan mendefinisikan fitur |Kemungkinan adanya kebutuhan pengguna yang tidak terakomodasi |
+| Processing → Analysis |Mengembangkan sistem berbasis QR Code | Pengujian dilakukan dalam skenario terbatas|
+| Analysis → Inference |Menarik kesimpulan bahwa sistem lebih efisien |Tidak mempertimbangkan variabel eksternal seperti konektivitas |
+| Inference → Knowledge |Menggeneralisasi efektivitas sistem | Overgeneralisasi tanpa validasi lintas konteks|
 
-**Distorsi paling besar di tahap:** ________________________
+**Distorsi paling besar di tahap:** Inverence - Knowladge
 
 **Dua distorsi spesifik yang teridentifikasi:**
-1. ___________________________________________________
-2. ___________________________________________________
-
+1. Generalisasi hasil penelitian tanpa validasi pada lingkungan yang berbeda
+2. Tidak adanya pengujian longitudinal untuk menilai efektivitas jangka panjan
 ---
 
 ## Latihan 2 — Analisis Kasus Etika
@@ -119,12 +118,12 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Perspektif | Analisis |
 |------------|---------|
-| Kejujuran ilmiah | *Contoh: Laporkan kedua versi (dengan dan tanpa outlier)* |
-| Transparansi | |
-| Peer review | |
+| Kejujuran ilmiah | Peneliti wajib melaporkan hasil secara utuh tanpa manipulasi data|
+| Transparansi | Setiap keputusan pengolahan data, termasuk penghapusan outlier, harus dijelaskan secara eksplisit|
+| Peer review | Komunitas ilmiah berperan dalam mengevaluasi validitas keputusan tersebut|
 
 **Keputusan akhir dan justifikasi:**
-> ___________________________________________________
+> Penghapusan outlier tanpa justifikasi yang kuat merupakan pelanggaran terhadap prinsip integritas ilmiah. Oleh karena itu, peneliti harus menyajikan kedua hasil (dengan dan tanpa outlier) sebagai bentuk transparansi dan akuntabilitas.
 
 ---
 
@@ -136,12 +135,12 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian dengan topik (1–5) | *Contoh: 4 — topik kuantitatif, cocok uji hipotesis* | *Contoh: 2 — topik tidak studi makna/konteks* | *Contoh: 5 — membangun artefak untuk uji klaim* |
-| Jenis data yang dikumpulkan | *Metrik numerik, log eksperimen* | *Wawancara, observasi kualitatif* | *Hasil uji artefak, komparasi kinerja* |
-| Limitasi paradigma | | | |
+| Kesesuaian dengan topik (1–5) | 4 — berbasis evaluasi kuantitatif| 2 — terbatas pada konteks pengguna |5 — berfokus pada pembangunan artefak  |
+| Jenis data yang dikumpulkan |Data performa sistem |Persepsi pengguna  | Hasil implementasi dan uji sistem|
+| Limitasi paradigma | Tidak menangkap seluruh konteks|Bersifat subjektif |Fokus pada artefak, bukan teori umum |
 
-**Paradigma yang dipilih:** _____________________________
-**Alasan:** ____________________________________________
+**Paradigma yang dipilih:** Design Science Research
+**Alasan:** Penelitian ini berorientasi pada pembangunan artefak teknologi sebagai solusi terhadap permasalahan nyata. Artefak tersebut kemudian digunakan sebagai sarana untuk menghasilkan pengetahuan melalui evaluasi performa sistem.
 
 ---
 
@@ -150,5 +149,4 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 > Sebelum membaca materi ini, apakah pernah mempertanyakan klaim "95% akurat"? Setelah memahami rantai distorsi, pertanyaan apa yang sekarang akan diajukan saat membaca paper?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+Sebelum memahami konsep Research Trust Model, saya cenderung menerima klaim efektivitas sistem tanpa mempertanyakan proses di baliknya. Namun, setelah memahami potensi distorsi pada setiap tahap penelitian, saya menyadari bahwa hasil penelitian tidak selalu merepresentasikan kondisi sebenarnya secara utuh. Oleh karena itu, saya kini lebih kritis dengan mempertanyakan validitas data, metodologi yang digunakan, serta sejauh mana hasil penelitian dapat digeneralisasi ke konteks yang berbeda.
