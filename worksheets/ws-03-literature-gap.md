@@ -77,66 +77,71 @@ Membandingkan deep learning 2024 dengan decision tree sederhana tanpa justifikas
 ```
 LITERATURE MAPPING
 
-Topik      : ____________________
-Database   : ____________________
-Query      : ____________________
-Tahun      : ____________________
-Hasil awal : ____ paper → Screening → ____ paper final
+Topik      : Sistem Absensi Berbasis QR
+Database   : 
+Query      : ("QR Code" OR "Sistem Absensi") AND ("Website" OR "Digital")
+Tahun      : 2020–2025
+Hasil awal : 20 paper → Screening → 5 paper final
 
 Literature Matrix (concept-centric):
 
 | Study | Tahun | Method | Data | Result | Limitation |
 |-------|-------|--------|------|--------|------------|
-|       |       |        |      |        |            |
+|Yamin Nuryamin et al.  |2023|QR Code berbasis website| Data absensi siswa|Mempermudah pencatatan absensi|Hanya diuji pada satu sekolah|
+|Andri Setiawan et al. |2022|QR Code + Web System| Data Mahasiswa|Proses absensi lebih cepat   |Bergantung pada internet|
+|Dwi Lestari et al.    |2021|Sistem absensi digital| Data Kehadiran Siswa|Mengurangi kesalahan manual  |Belum ada validasi lokasi|
+|Ahmad Fauzi et al.    |2024|QR Code real-time| Data absensi kampus | Monitoring lebih efisien |Potensi titip absen |
+|Rizky Pratama et al.   |2023|QR Code + Database| Data Sekolah| Rekap absensi otomatis|Belum diuji jangka panjang |
+
 
 Pola yang ditemukan:
-  Metode dominan     : ____________________
-  Dataset umum       : ____________________
-  Limitasi berulang  : ____________________
+  Metode dominan     : Sistem absensi berbasis QR Code dan website
+  Dataset umum       : Data absensi siswa atau mahasiswa
+  Limitasi berulang  : Ketergantungan internet dan potensi manipulasi absensi
 
 GAP IDENTIFICATION
 
-Gap 1: [Jenis: performance / method / data / context]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
+Gap 1: [Jenis: Contect Gap]
+  Deskripsi    : Sebagian besar penelitian hanya diuji pada satu institusi pendidikan tertentu
+  Bukti        : Mayoritas paper menggunakan lingkungan pengujian terbatas satu sekolah atau satu kampus
+  Signifikansi : hasil penelitian belum tentu relevan untuk lingkungan pendidikan yang berbeda
 
-Gap 2: [Jenis: ____]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
-
+Gap 2: [Jenis: Performance Gap]
+  Deskripsi    : Sistem QR Code masih meimiliki kelemahan validasi kehadiran aslui pengguna
+  Bukti        : Beberapa penelitian masih menemukan kasus titip absen atau penyalahgunaan QR Code
+  Signifikansi : Menurunkan validitas dan keakuratan data absensi digital
 Baseline Selection:
 | Baseline | Relevansi | Representatif | Source |
 |----------|-----------|---------------|--------|
-|          |           |               |        |
-```
+|Sistem absensi manual|Digunakan sebagai pembanding utama|Masih digunakan di banyak sekolah|Dwi Lestari et al., 2021|
+|Sistem absensi QR berbasis web|memiliki fungsi yang sama|Digunakan di sebagian besar penelitian|Yamin Nuryamin et al., 2023|
+
+
 
 ---
 
 ## Latihan 1 — Concept-Centric Literature Table
 
-Gunakan topik riset dari WS-02. Cari minimal 5 paper relevan menggunakan database akademik.
+Topik riset : Sistem absensi berbasis QR Code
 
 > **Panduan pencarian:**
 > - Database: IEEE Xplore, ACM DL, Google Scholar, atau ResearchGate
 > - Tulis query Boolean yang digunakan: contoh `("object detection" OR "image classification") AND ("edge computing") NOT ("medical")`. Dokumentasikan query secara eksplisit.
 > - Akses gratis: buka Google Scholar → cari judul paper → klik [PDF] jika tersedia, atau akses lewat campus VPN
 
-**Topik riset:** ________________________________________
-**Query pencarian:** ____________________________________
-**Database:** ___________________________________________
-
+**Topik riset:** Sistem absensi berbasis QR Code
+**Query pencarian:** ("QR Code" OR "Sistem Absensi") AND ("Website" OR "Digital")
+**Database:** Google Scholar
 | # | Study | Tahun | Method | Dataset | Result | Limitasi |
 |---|-------|-------|--------|---------|--------|----------|
-| 1 | *Contoh: Rahman et al.* | *2023* | *CNN* | *ImageNet subset* | *Acc 91%* | *Hanya 3 kelas* |
-| 2 | | | | | | |
-| 3 | | | | | | |
-| 4 | | | | | | |
-| 5 | | | | | | |
+| 1 | Yamin Nuryamin et al.| 2023 | QR Code Website| Data Siswa | Absensi lebih efisien| Satu sekolah |
+| 2 |Andri Setiawan et al. |2022 |QR Code System |Data Mahasiswa |Mempercepat absensi |Bergantung internet |
+| 3 |Dwi Lestari et al. |2021 |Sistem digital |Data Sekolah |Mengurangi kesalahan manual |Belum validasi lokasi |
+| 4 |Ahmad Fauzi et al. |2024|Real-time QR |Data Kampus| Monitoring lebih cepat|potensi manipulasi |
+| 5 |Rizky Pratama et al. |2023 |QR + Database |Data Absensi|Rekap otomatis |Belum lama diuji |
 
-**Pola yang terlihat — Metode dominan:** ___________________
-**Limitasi yang berulang:** ______________________________
+**Pola yang terlihat — Metode dominan:** Sistem absensi berbasis QR Code dan website
+**Limitasi yang berulang:** Ketergantungan terhadap koneksi internet dan potensi titip absen
 
 ---
 
@@ -146,14 +151,14 @@ Berdasarkan tabel di Latihan 1, identifikasi gap.
 
 | Jenis Gap | Ditemukan? | Gap Statement |
 |-----------|-----------|---------------|
-| Performance Gap | [ ] Ya / [ ] Tidak | *Contoh: Akurasi turun di bawah 80% untuk kelas minoritas* |
-| Method Gap | [ ] Ya / [ ] Tidak | |
-| Data Gap | [ ] Ya / [ ] Tidak | |
-| Context Gap | [ ] Ya / [ ] Tidak | |
+| Performance Gap | [Ya] Ya / [ ] Tidak |Sistem masih memiliki potensi manipulasi absensi|
+| Method Gap | [Ya] Ya / [ ] Tidak |Belum banyak penelitian yang menggabungkan validasi lokasi atau biometrik |
+| Data Gap | [Ya] Ya / [ ] Tidak |Dataset hanya berasal dari satu institusi |
+| Context Gap | [Ya] Ya / [ ] Tidak |Belum diuji pada berbagai lingkungan pendidikan |
 
-**Gap utama yang dipilih:** _____________________________
+**Gap utama yang dipilih:** Context Gap dan Performance Gap
 **Mengapa gap ini penting (bukan sekadar "belum ada yang meneliti")?**
-> ___________________________________________________
+> Gap ini penting karena efektivitas sistem absensi QR Code belum tentu sama di setiap lingkungan pendidikan. Selain itu, potensi manipulasi absensi dapat mempengaruhi validitas data kehadiran sehingga perlu evaluasi lebih lanjut terhadap keamanan dan keandalan sistem.
 
 ---
 
@@ -163,11 +168,11 @@ Pilih 2 baseline dari literatur yang sudah dibaca.
 
 | # | Baseline | Mengapa Relevan | Mengapa Representatif | Apakah SOTA? | Sumber |
 |---|----------|----------------|----------------------|-------------|--------|
-| 1 | *Contoh: RF + TF-IDF* | *Task sama: klasifikasi teks* | *Dipakai 6 dari 10 paper* | *Bukan, tapi common practice* | *Lee et al., 2022* |
-| 2 | | | | | |
+| 1 |  Sistem absensi manual| Membandingkan metode lama dan baru|Masih umum digunakan | Tidak | Dwi Lestari et al., 2021 |
+| 2 |Sistem absensi QR berbasis web |Memiliki tujuan yang sama |Banyak digunakan pada penelitian serupa |Ya | Yamin Nuryamin et al., 2023|
 
-**Apakah pemilihan baseline ini bisa dianggap straw man?** [ ] Ya / [ ] Tidak
-> Justifikasi: ________________________________________
+**Apakah pemilihan baseline ini bisa dianggap straw man?** [ ] Ya / [jawabannya tidak] Tidak
+> Justifikasi: Baseline yang dipilih masih relevan dengan permasalahan penelitian dan digunakan secara umum dalam implementasi sistem absensi di lingkungan pendidikan.
 
 ---
 
@@ -176,5 +181,5 @@ Pilih 2 baseline dari literatur yang sudah dibaca.
 > Apa perbedaan antara "belum ada yang meneliti ini" (klaim tanpa bukti) dengan research gap yang valid? Bagaimana cara membuktikan bahwa sebuah gap benar-benar ada?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Pernyataan “belum ada yang meneliti ini” tidak dapat dianggap sebagai research gap tanpa bukti yang jelas dari hasil pencarian literatur. Research gap yang valid harus didukung oleh analisis beberapa penelitian sebelumnya untuk menemukan keterbatasan, kontradiksi, atau konteks yang belum diuji.
+> Sebuah gap dapat dibuktikan melalui literature review yang sistematis, penggunaan query pencarian yang jelas, serta identifikasi pola limitasi yang berulang pada penelitian sebelumnya.
