@@ -96,7 +96,7 @@ Problem Quality Check
   [Ya] Impact — Apakah ada kontribusi jika terjawab?
 
 Problem Statement (1 paragraf):
-  Perkembangan sistem informasi mendorong digitalisasi proses absensi di lingkungan pendidikan, salah satunya melalui penggunaan QR Code. Namun, meskipun sistem ini dianggap lebih efisien dibandingkan metode manual, masih terdapat permasalahan terkait validitas dan keakuratan data kehadiran, seperti potensi penyalahgunaan QR Code dan ketergantungan pada kondisi teknis tertentu. Oleh karena itu, diperlukan penelitian untuk mengevaluasi efektivitas sistem absensi berbasis QR Code dalam meningkatkan akurasi, efisiensi, dan keandalan data kehadiran siswa.
+Perkembangan sistem informasi mendorong digitalisasi proses absensi di lingkungan pendidikan, salah satunya melalui penggunaan QR Code. Namun, meskipun sistem ini dianggap lebih efisien dibandingkan metode manual, masih terdapat permasalahan terkait validitas dan keakuratan data kehadiran, seperti potensi penyalahgunaan QR Code dan ketergantungan pada kondisi teknis tertentu. Oleh karena itu, diperlukan penelitian untuk mengevaluasi efektivitas sistem absensi berbasis QR Code dalam meningkatkan akurasi, efisiensi, dan keandalan data kehadiran siswa.
 ```
 
 ---
@@ -143,17 +143,16 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Clarity | *Contoh: 4 — cukup jelas tapi perlu spesifikasi dataset* | |
-| Measurability | | |
-| Relevance | | |
-| Testability | | |
-| Impact | | |
+| Clarity | 5 |Masalah dijelaskan dengan jelas dan spesifik |
+| Measurability |5 | Menggunakan metrik seperti akurasi dan waktu|
+| Relevance |5 |Sangat penting dalam sistem pendidikan |
+| Testability |4 |Bisa diuji dengan eksperimen sistem |
+| Impact | 5|Berdampak pada efisiensi dan keakuratan |
 
-**Skor total:** _____ / 25
+**Skor total:** 24 / 25
 
 **Problem statement versi final (1 paragraf):**
-> ___________________________________________________
-> ___________________________________________________
+Digitalisasi sistem absensi di lingkungan pendidikan melalui teknologi QR Code bertujuan untuk meningkatkan efisiensi dan akurasi pencatatan kehadiran. Namun, dalam implementasinya masih ditemukan permasalahan seperti potensi manipulasi data dan ketergantungan terhadap kondisi teknis, yang dapat mempengaruhi keandalan sistem. Oleh karena itu, diperlukan evaluasi terhadap efektivitas sistem absensi berbasis QR Code dalam meningkatkan akurasi, efisiensi, dan validitas data kehadiran siswa.
 
 ---
 
@@ -162,5 +161,6 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 > Bandingkan "masalah" yang biasa ditemui saat coding (bug, error) dengan masalah riset. Apa perbedaan fundamental dalam cara mendefinisikan dan mendekati keduanya?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+Masalah dalam coding biasanya bersifat teknis seperti bug atau error yang harus segera diperbaiki agar sistem dapat berjalan dengan baik. Sedangkan masalah dalam penelitian lebih berfokus pada pemahaman terhadap suatu fenomena dan mencari bukti yang dapat diuji secara ilmiah.
+
+Perbedaan utamanya terletak pada pendekatan, di mana coding bertujuan menyelesaikan masalah secara langsung, sedangkan penelitian bertujuan memahami, menganalisis, dan membuktikan suatu masalah secara sistematis.
