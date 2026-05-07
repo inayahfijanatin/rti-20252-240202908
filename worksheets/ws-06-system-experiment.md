@@ -80,25 +80,26 @@ Jika variabel tidak bisa di-map ke komponen apapun → arsitektur perlu didesain
 ```
 SYSTEM-EXPERIMENT MAPPING
 
-Research Question: ____________________
+Research Question: Apakah sistem absensi berbasis QR Code menghasilkan proses absensi yang lebih efisien dan akurat dibandingkan sistem absensi manual pada lingkungan pendidikan?
 
 Variable → Component Mapping:
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi/Pengukuran |
 |----------|------|-----------------|---------------------------|
-|          | IV   |                 |                           |
-|          | DV   |                 |                           |
-|          | CV   |                 |                           |
+| Jenis sistem absensi         | IV   |  Modul absensi (QR Code vc manual)               |  Mengubah metode absensi yang digunakan                          |
+| Efisiensi absensi         | DV   | LOogger waktu absensi                |Mengukur durasi proses absensi                           |
+| Akurasi absensi         | DV   | Database absensi                | Menghitung jumlah kesalahan pencatatan                          |
+| Jumlah siswa         | CV   | Data peserta absensi                | Menjaga jumlah peserta tetap sama                          |
 
 4 Prinsip Desain:
-  [ ] Traceability — Setiap komponen bisa ditelusuri ke variabel
-  [ ] Variable Isolation — IV bisa diubah tanpa mengubah CV
-  [ ] Measurement Integration — Pengukuran DV built-in
-  [ ] Reproducibility — Setup bisa direkonstruksi
+  [Ya] Traceability — Setiap komponen bisa ditelusuri ke variabel
+  [Ya] Variable Isolation — IV bisa diubah tanpa mengubah CV
+  [Ya] Measurement Integration — Pengukuran DV built-in
+  [Ya] Reproducibility — Setup bisa direkonstruksi
 
 Experimental Setup:
-  Input data     : ____________________
-  Parameter      : ____________________
-  Output format  : ____________________
+  Input data     : Data absensi siswa
+  Parameter      : Jumlah siswa, waktu absensi, metode absensi
+  Output format  : Data waktu absensi dan jumlah kesalahan pencatatan
 ```
 
 ---
@@ -107,15 +108,16 @@ Experimental Setup:
 
 Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 
-**RQ:** __________________________________________________
+**RQ:** Apakah sistem absensi berbasis QR Code menghasilkan proses absensi yang lebih efisien dan akurat dibandingkan sistem absensi manual pada lingkungan pendidikan?
 
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi / Pengukuran |
 |----------|------|-----------------|---------------------------|
-| *Contoh: Jenis model* | *IV* | *Modul classifier (swap RF ↔ CNN)* | *Ganti config `model_type`* |
-| | DV | | |
-| | CV | | |
+|Jenis sistem absensi  |IV  |Modul absensi |Mengubah mode QR Code atau manual  |
+|Efisiensi absensi | DV |Sistem pencatat waktu |Menghitung lama proses absensi |
+| Akurasi absensi| DV |Database absensi |Menghitung jumlah kesalahan data |
+|Jumlah Siswa| CV |Data peserta |Menyamakan jumlah siswa |
 
-**Apakah semua variabel bisa di-map?** [ ] Ya / [ ] Tidak
+**Apakah semua variabel bisa di-map?** [Ya ] Ya / [ ] Tidak
 > Jika tidak, komponen apa yang perlu ditambahkan? _________
 
 ---
@@ -126,14 +128,14 @@ Evaluasi desain sistem terhadap 4 prinsip.
 
 | Prinsip | Status | Bukti / Penjelasan |
 |---------|--------|-------------------|
-| Traceability | *Contoh: ✅ — setiap modul punya label variabel* | |
-| Modularity | | |
-| Controllability | | |
-| Measurability | | |
+| Traceability | ✅ |Setiap variabel memiliki komponen sistem yang jelas |
+| Modularity |✅ |sistem QR dan manual dapat dipisahkan |
+| Controllability |✅ |Jumlah siswa dan kondisi pengujian dikontrol |
+| Measurability |✅ |sistem menghasilkan data waktu dan error secara otomatis |
 
-**Prinsip mana yang paling sulit dipenuhi?** _______________
+**Prinsip mana yang paling sulit dipenuhi?** Controllability
 **Strategi untuk mengatasinya:**
-> ___________________________________________________
+> Menjaga kondisi eksperimen tetap sama, seperti jumlah siswa, waktu pelaksanaan, dan perangkat yang digunakan selama pengujian.
 
 ---
 
@@ -146,14 +148,14 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 
 | Kondisi | Komponen A | Komponen B | Komponen C | Hasil yang Diharapkan |
 |---------|-----------|-----------|-----------|----------------------|
-| Full | *Contoh: ✅ CNN* | *Contoh: ✅ Temporal features* | *Contoh: ✅ Z-score norm* | *Baseline penuh* |
-| – A | ❌ (ganti RF) | ✅ | ✅ | |
-| – B | ✅ | ❌ (tanpa temporal) | ✅ | |
-| – C | ✅ | ✅ | ❌ (tanpa normalisasi) | |
+| Full | ✅ QR Code | ✅ Database otomatis |  ✅ Validasi waktu  | Sistem bekerja optimal |
+| – A | ❌ Manual | ✅ | ✅ | Proses lebih lambat|
+| – B | ✅ | ❌ pencatatan manual | ✅ |Resiko kesalahan meningkat |
+| – C | ✅ | ✅ | ❌ tanpa validasi | Potensi manipulasi absensi meningkat|
 
-**Komponen mana yang diprediksi paling berkontribusi?** _____
+**Komponen mana yang diprediksi paling berkontribusi?** QR Code
 **Mengapa?**
-> ___________________________________________________
+> Karena QR Code menjadi inti proses digitalisasi absensi yang berpengaruh langsung terhadap kecepatan dan efisiensi pencatatan data kehadiran.
 
 ---
 
@@ -162,5 +164,5 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 > Apa risiko jika sistem dibangun seperti produk (monolitik, fitur lengkap) lalu baru dilakukan eksperimen? Mengapa arsitektur modular penting untuk riset?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Jika sistem dibangun seperti produk yang monolitik dan penuh fitur sebelum eksperimen dilakukan, maka akan sulit untuk mengetahui komponen mana yang benar-benar mempengaruhi hasil penelitian. Hal ini dapat menyebabkan bias dan menyulitkan proses evaluasi variabel penelitian.
+> Arsitektur modular penting dalam riset karena memungkinkan peneliti mengisolasi variabel tertentu, melakukan pengujian secara terstruktur, serta meningkatkan reprodusibilitas eksperimen sehingga hasil penelitian menjadi lebih valid dan dapat dipercaya.
