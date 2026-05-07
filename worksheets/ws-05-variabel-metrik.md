@@ -66,19 +66,20 @@ Metrik harus ditentukan **sebelum** eksperimen. Memilih metrik setelah melihat d
 ```
 VARIABLE & METRIC DEFINITION
 
-Research Question: ____________________
+Research Question: Apakah sistem absensi berbasis QR Code menghasilkan proses absensi yang lebih efisien dan akurat dibandingkan sistem absensi manual pada lingkungan pendidikan?
 
 | Variabel | Tipe | Konsep | Metrik | Skala | Satuan | Cara Mengukur | Justifikasi |
 |----------|------|--------|--------|-------|--------|---------------|-------------|
-|          | IV   |        |        |       |        |               |             |
-|          | DV   |        |        |       |        |               |             |
-|          | CV   |        |        |       |        |               |             |
+|Jenis sistem absensi          | IV   |Metode absensi        |QR Code vs manual        |Nominal       | -       |Membandingkan dua jenis sistem               | Representatif untuk mebandingkan metode absensi            |
+|Efisiensi absensi          | DV   |Kecepatan proses absensi        |Waktu proses absensi        |Ratio       | Menit       |menghitung waktu dari awal hingga selesai absensi               |mengukur efektivitas sistem secara lanngsung             |
+|Akurasi absensi          | DV   |Ketepatan data kehadiran        |Jumlah kesalahan pencatatan        | Ratio      |Jumlah error        | Menghitung kesalahan data absensi              |mewakili validitas data kehadoiran              |
+|Jumlah siswa          | CV   |Kondisi pengujian        | Banyak peserta absensi       |Ratio       | Orang       | Menghitung jumlah siswa saat pengujian              |Mdengontrol pengaruh ukuran sampel             |
 
 Alignment Check:
   RQ → Concept → Variable → Metric → Data → Result
-  [ ] Setiap langkah terdokumentasi
-  [ ] Tidak ada "lompatan logis"
-  [ ] Metrik mengukur apa yang dimaksud (construct validity)
+  [Ya] Setiap langkah terdokumentasi
+  [Ya] Tidak ada "lompatan logis"
+  [Ya] Metrik mengukur apa yang dimaksud (construct validity)
 ```
 
 ---
@@ -87,16 +88,17 @@ Alignment Check:
 
 Gunakan RQ dari WS-04. Definisikan variabel dan metriknya.
 
-**RQ:** __________________________________________________
+**RQ:** Apakah sistem absensi berbasis QR Code menghasilkan proses absensi yang lebih efisien dan akurat dibandingkan sistem absensi manual pada lingkungan pendidikan?
 
 | Variabel | Tipe | Konsep Abstrak | Metrik Konkret | Skala (NOIR) | Satuan |
 |----------|------|---------------|----------------|-------------|--------|
-| *Contoh: Jenis model* | *IV* | *Pendekatan klasifikasi* | *Categorical: CNN vs RF* | *Nominal* | *—* |
-| | DV | | | | |
-| | CV | | | | |
+| Jenis sistem absensi | IV |Metode absensi | QR Code vs manual |Nominal  |-|
+|Efisiensi absensi | DV |Kecepatan proses |Waktu absensi |Ratio |Menit |
+| Akurasi absensi| DV | Ketepatan data|Jumlah kesalahan |Ratio |Error |
+|Jumlah siswa | CV |kondoso eksperimen |Total siswa |Ratio |Orang |
 
-**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [ ] Tidak
-> Jika ya, di mana? ____________________________________
+**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [V, inin jawabannya] Tidak
+> Jika ya, di mana? 
 
 ---
 
@@ -106,15 +108,15 @@ Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Representative | *Contoh: 4 — F1-Score mewakili keseimbangan precision-recall* | |
-| Sensitive | | |
-| Feasible | | |
+| Representative | 5 | Waktu dan jumlah keselahan secara langsung menggambarkan efisiensi dan akurasi |
+| Sensitive |4 |Perubahan kesil pada waktu dan error masih dapat terlihat |
+| Feasible |5 |Data mudah dikumpulkan saat proses absensi berlangsung |
 
-**Apakah perlu secondary metric?** [ ] Ya / [ ] Tidak
-> Jika ya, apa dan mengapa? _____________________________
+**Apakah perlu secondary metric?** [Ya] Ya / [ ] Tidak
+> Jika ya, apa dan mengapa? Untuk mengetahui pengalaman pengguna selain hanya performa teknis sistem.
 
 **Contoh kasus ceiling effect untuk metrik ini:**
-> ___________________________________________________
+> Jika seluruh siswa dapat melakukan absensi dengan sangat cepat, maka perbedaan performa antar sistem menjadi sulit terlihat karena semua hasil mendekati nilai maksimum.
 
 ---
 
@@ -124,10 +126,10 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 
 | Dimensi | Pertanyaan | Jawaban | Strategi Mitigasi |
 |---------|-----------|---------|------------------|
-| Completeness | *Apakah semua data point terkumpul?* | | |
-| Consistency | *Apakah ada kontradiksi internal?* | | |
-| Validity | *Apakah benar-benar mengukur yang dimaksud?* | | |
-| Representativeness | *Apakah sampel mewakili populasi target?* | | |
+| Completeness | *Apakah semua data point terkumpul?* |Kemungkinan ada data yang hilang |Melakukan backup data otomatis |
+| Consistency | *Apakah ada kontradiksi internal?* |Bisa terjadi data ganda |validasi data pada database |
+| Validity | *Apakah benar-benar mengukur yang dimaksud?* |Ya, karena menggunakan data absensi langsung |Menggunakan metrik yang sesusai |
+| Representativeness | *Apakah sampel mewakili populasi target?* | Masih terbatas pada satu sekolah|Menambah variasi lokasi penelitian |
 
 ---
 
@@ -136,5 +138,5 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 > Mengapa memilih metrik setelah melihat data dianggap p-hacking? Apa bedanya dengan eksplorasi data yang sah?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Memilih metrik setelah melihat data dianggap sebagai p-hacking karena peneliti dapat memilih hasil yang paling menguntungkan sehingga kesimpulan menjadi tidak objektif. Hal ini dapat menurunkan validitas penelitian karena metrik dipilih berdasarkan hasil, bukan berdasarkan tujuan penelitian sejak awal.
+> Berbeda dengan eksplorasi data yang sah, di mana analisis tambahan dilakukan untuk menemukan pola baru tanpa mengubah hipotesis utama yang telah ditentukan sebelumnya. Hasil eksplorasi biasanya dilaporkan sebagai temuan tambahan, bukan sebagai bukti utama penelitian.
