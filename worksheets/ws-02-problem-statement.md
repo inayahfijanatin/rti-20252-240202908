@@ -1,6 +1,6 @@
 # WS-02: Problem Statement
 
-> **Bab 2 — Problem Formulation & System Context**
+> **Bab 2 — Problem Formulation & System Context** 
 
 ---
 
