@@ -1,6 +1,6 @@
 # WS-01: Distorsi & Paradigma
 
-> **Bab 1 — Research Mindset in IT**
+> **Bab 1 — Research Mindset in IT** 
 
 ---
 
