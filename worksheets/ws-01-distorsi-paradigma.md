@@ -73,9 +73,9 @@ Tanggal          : 30 April 2026
    - Alasan: Penelitian ini tidak hanya menguji efektivitas sistem secara kuantitatif, tetapi juga membangun artefak berupa sistem absensi berbasis QR Code. Oleh karena itu, pendekatan yang digunakan merupakan kombinasi antara pengujian empiris (positivis) dan pembangunan solusi (Design Science Research).
 
 3. Identifikasi distorsi:
-   - Asumsi tersembunyi: Sistem digital berbasis QR Code diasumsikan secara inheren lebih efektif dibandingkan sistem manual tanpa mempertimbangkan konteks implementasi
-   - Sumber bias potensial: Sampling terbatas pada satu institusi pendidikan serta kemungkinan bias penggunaan dalam kondisi jaringan yang stabil
-   - Langkah mitigasi: Melakukan replikasi studi di berbagai lingkungan, menggunakan data yang lebih beragam, serta mempertimbangkan variabel eksternal seperti infrastruktur teknologi
+   - Asumsi tersembunyi:Sistem absensi QR Code dianggap lebih baik dibandingkan absensi manual.
+   - Sumber bias potensial:Pengujian hanya dilakukan pada satu sekolah dan kondisi jaringan internet yang digunakan bisa mempengaruhi hasil penelitian.
+   - Langkah mitigasi: Melakukan pengujian di lebih dari satu tempat, menggunakan data yang lebih beragam, dan mencoba sistem pada kondisi jaringan yang berbeda.
 
 4. Komitmen etika:
    - Data yang tidak akan dimanipulasi: Seluruh hasil pengujian, termasuk hasil yang tidak sesuai harapan atau menunjukkan keterbatasan sistem
