@@ -73,32 +73,39 @@ Mengandalkan "install library terbaru" berbahaya: versi berbeda = perilaku berbe
 EXPERIMENT SETUP DOCUMENTATION
 
 Hardware:
-  CPU     : ____________________
-  RAM     : ____________________
-  GPU     : ____________________
-  Storage : ____________________
+  CPU     : Intel Core i5
+  RAM     : 8 GB
+  GPU     : Intel UHD Graphics
+  Storage : SSD 256 GB
 
 Software:
-  OS        : ____________________
-  Runtime   : ____________________
-  Framework : ____________________
+  OS        : Windows 10 Pro 64-bit
+  Runtime   : PHP 8.2.12
+  Framework : Laravel 12.63.0
+  Database  : MYSQL
+  IDE       : VS Code
 
-Dependencies:
-| Library | Version | Sumber | Hash/Checksum |
-|---------|---------|--------|---------------|
-|         |         |        |               |
-|         |         |        |               |
+| Library        | Version | Sumber   | Hash         |
+| -------------- | ------- | -------- | ------------ |
+| Laravel        | 12.63.0 | Composer | package-lock |
+| PHP            | 8.2.12  | XAMPP    | Official     |
+| Bootstrap      | 5.3.3   | CDN      | Official     |
+| Simple QR Code | 4.2.0   | Composer | Official     |
+| Chart.js       | 4.x     | CDN      | Official     |
+
+
 
 Konfigurasi:
-  Config file     : ____________________
-  Random seed     : ____________________
-  Hyperparameters : ____________________
+  Config file     : .env
+  Database        : MYSQL
+  Random seed     : Tidak digunakan
+  QR Folder       : storage/app/public/qrcode
 
 Reproducibility Check:
-  [ ] Dependency terdokumentasi (requirements.txt / lock file)
-  [ ] Seed ditetapkan di semua level (Python, NumPy, framework)
-  [ ] Config di version control
-  [ ] README instruksi reproduksi lengkap
+  [YA] Dependency terdokumentasi (requirements.txt / lock file)
+  [YA] Seed ditetapkan di semua level (Python, NumPy, framework)
+  [YA] Config di version control
+  [YA] README instruksi reproduksi lengkap
 ```
 
 ---
@@ -107,25 +114,34 @@ Reproducibility Check:
 
 Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini atau yang direncanakan).
 
-| Komponen | Spesifikasi |
-|----------|------------|
-| CPU | *Contoh: Intel Core i7-12700H, 14 Core* |
-| RAM | *Contoh: 32 GB DDR5* |
-| GPU | *Contoh: NVIDIA RTX 3060 6GB / CPU-only jika tidak ada GPU* |
-| OS | *Contoh: Ubuntu 22.04 LTS / Windows 11* |
-| Runtime | |
-| Framework | |
-| Random Seed | |
+| Komponen    | Spesifikasi                                                       |
+| ----------- | ----------------------------------------------------------------- |
+| CPU         | Intel Core i5 (64-bit) *(sesuaikan dengan laptopmu jika berbeda)* |
+| RAM         | 8 GB DDR4 *(sesuaikan jika berbeda)*                              |
+| GPU         | Intel UHD Graphics (Integrated)                                   |
+| Storage     | SSD 256 GB                                                        |
+| OS          | Windows 10 Pro 64-bit                                             |
+| Runtime     | PHP 8.2.12                                                        |
+| Framework   | Laravel 12.63.0                                                   |
+| Web Server  | Apache (XAMPP)                                                    |
+| Database    | MySQL                                                             |
+| IDE         | Visual Studio Code                                                |
+| Browser     | Google Chrome / Microsoft Edge                                    |
+| Random Seed | Tidak digunakan (aplikasi web bersifat deterministik)             |
+
 
 **Dependencies (minimal 5):**
 
-| Library | Version | Alasan Dibutuhkan |
-|---------|---------|-------------------|
-| *Contoh: scikit-learn* | *1.3.2* | *Klasifikasi + evaluasi metrik* |
-| | | |
-| | | |
-| | | |
-| | | |
+| Library           | Version | Alasan Dibutuhkan            |
+| ----------------- | ------- | ---------------------------- |
+| Laravel Framework | 12.63.0 | Framework utama aplikasi     |
+| PHP               | 8.2.12  | Runtime Laravel              |
+| Bootstrap         | 5.3.3   | Membangun antarmuka pengguna |
+| Simple QR Code    | 4.2.0   | Membuat QR Code guru         |
+| Chart.js          | 4.x     | Menampilkan grafik dashboard |
+| MySQL             | 8.x     | Penyimpanan data             |
+| Composer          | 2.x     | Manajemen dependency PHP     |
+
 
 ---
 
@@ -133,27 +149,33 @@ Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini ata
 
 Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment yang sama.
 
-| Run | Seed | Metrik Utama | Hasil Sama? |
-|-----|------|-------------|-------------|
-| 1 | *Contoh: 42* | *Contoh: Accuracy* | — |
-| 2 | | | [ ] Ya / [ ] Tidak |
-| 3 | | | [ ] Ya / [ ] Tidak |
+| Run | Kondisi        | Pengujian        | Hasil Sama? |
+| --- | -------------- | ---------------- | ----------- |
+| 1   | Data Guru sama | Generate QR Code | Ya          |
+| 2   | Data Guru sama | Generate QR Code | Ya          |
+| 3   | Data Guru sama | Generate QR Code | Ya          |
+
+**Metrik**
+- QR Code berhasil dibuat
+- File tersimpan pada folder storage/app/public/qrcode
+- Nama file sesuai database
+- Data guru tetap sama
+- QR dapat dipindai dengan benar
 
 **Jika hasil berbeda, kemungkinan penyebab:**
-
-> Penyebab umum non-repeatability:
-> - **Thermal throttling** — CPU/GPU overheating pada run berturut-turut → clock speed turun → waktu eksekusi berubah
-> - **Background process** — antivirus scan, update OS, atau cloud sync aktif saat run berlangsung
-> - **Cache dari run sebelumnya** — hasil tersimpan di memori/disk sehingga run berikutnya tidak menjalankan komputasi penuh
-> - **Random state tidak dikontrol di semua level** — Python seed di-set, tapi NumPy/PyTorch/TensorFlow punya seed independen
-
+**Kemungkinan penyebab**
+- Folder storage belum di-link
+- Dependency QR Code belum lengkap.
+- Konfigurasi .env berubah.
+- Database berbeda.
+- Cache Laravel belum dibersihkan.
 ___________________________________________________
 
 **Checklist kontrol yang sudah diterapkan:**
-- [ ] Random seed di-set di semua level
-- [ ] Tidak ada background process yang mengganggu
-- [ ] Cache dibersihkan antar-run
-- [ ] Config file yang sama untuk semua run
+- [YA] Random seed di-set di semua level
+- [YA] Tidak ada background process yang mengganggu
+- [YA] Cache dibersihkan antar-run
+- [YA] Config file yang sama untuk semua run
 
 ---
 
@@ -162,33 +184,68 @@ ___________________________________________________
 Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 ```
-# Judul Eksperimen: ____________________
+# Judul Eksperimen: **Implementasi Sistem Absensi Guru Berbasis QR Code Menggunakan Laravel**
 
 ## 1. Environment
-> (Salin spesifikasi dari Latihan 1)
+- Windows 10 Pro
+- PHP 8.2.12
+- Laravel 12.63.0
+- Apache (XAMPP)
+- MySQL
+- Bootstrap 5
+- Visual Studio Code
 
 ## 2. Installation
-> (Langkah instalasi, misal: "pip install -r requirements.txt")
+- Clone project : git clone <repository>
+- Masuk ke folder project : cd absensi-qrcode
+- Install dpendency : composer install
+- Salin konfogurasi : copy .env.example .env
+- Generate application key : php artisan key:generate
+- Migrasi database : php artisan migrate
+- Hubungkan storage : php artisan storage:link
+- Jalankan Aplikasi : php artisan serve
 
 ## 3. Data
-> (Deskripsi data: sumber, format, ukuran)
+Data penelitian menggunakan data guru yang terdiri dari:
+- NIP
+- Nama Guru
+- Jabatan
+- Jenis Kelamin
+- Nomor HP
+- Email
+- QR Code
 
 ## 4. Execution
-> (Command untuk menjalankan eksperimen)
+- Menjalankan Aplikasi : php artisan serve
+- Akses melalui browser : http://127.0.0.1:8000
 
 ## 5. Configuration
-> (File config yang digunakan + parameter kunci)
+Konfigurasi menggunakan file .env. Parameter utama meliputi:
+- Database MySQL
+- APP_URL
+- Storage Public
+- QR Code Folder
 
 ## 6. Expected Output
-> (Contoh output yang diharapkan + format)
-```
+Output yang diharapkan meliputi:
+- Login berhasil.
+- Dashboard menampilkan statistik guru.
+- CRUD data guru berjalan normal.
+- QR Code setiap guru dapat dihasilkan dan disimpan.
+- QR Code dapat digunakan pada proses absensi.
+- Data absensi tersimpan ke database dan dapat ditampilkan dalam laporan.
 
 ---
 
 ## Refleksi
 
 > Apakah eksperimen Anda saat ini bisa direproduksi oleh orang lain tanpa bantuan Anda? Komponen apa yang masih hilang?
+Ya, sebagian besar dapat direproduksi. Seluruh kebutuhan perangkat lunak, versi framework, runtime PHP, database, serta langkah instalasi telah didokumentasikan sehingga peneliti lain dapat menjalankan aplikasi pada lingkungan yang serupa. Namun, untuk mencapai reproducibility yang lebih baik masih diperlukan dokumentasi repository Git, contoh data awal (seed database), serta panduan konfigurasi deployment yang lebih lengkap.
 
-**Level saat ini:** [ ] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
+**Level saat ini:** [YA] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
 **Komponen yang belum terdokumentasi:**
-> ___________________________________________________
+- Repository Git
+- Seed database
+- Dokumentasi deployment
+- Backup database
+- Panduan konfigurasi server produksi
