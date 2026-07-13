@@ -66,33 +66,40 @@ Data leakage terjadi ketika informasi dari test set "bocor" ke preprocessing:
 ```
 PREPROCESSING LOG
 
-Dataset           : ____________________
-Jumlah data awal  : ____________________
+Dataset           : Data Absensi Guru Berbasis QR Code
+Jumlah data awal  : 5 data absensi
 
 Cleaning:
+
 | Masalah | Jumlah Kasus | Penanganan | Justifikasi |
 |---------|-------------|------------|-------------|
-| Missing |             |            |             |
-| Duplikat|             |            |             |
-| Error   |             |            |             |
+| Missing value | 0 | Tidak ada tindakan | Seluruh data berhasil tersimpan |
+| Duplikat | 0 | Tidak ada tindakan | Sistem hanya membuat satu data absensi per hari dan scan berikutnya mengisi jam pulang |
+| Error format | 0 | Validasi format tanggal, jam, dan status | Seluruh data sesuai format database MySQL |
 
 Transformation:
+
 | Transformasi | Variabel | Detail | Alasan |
-|-------------|----------|--------|--------|
-|             |          |        |        |
+|--------------|----------|--------|--------|
+| Format tanggal | tanggal | YYYY-MM-DD menjadi DD-MM-YYYY saat ditampilkan | Agar lebih mudah dibaca pengguna |
+| Format waktu | jam_masuk, jam_pulang | Format HH:mm:ss | Menyeragamkan tampilan data |
+| Relasi data | guru_id | Menampilkan nama guru menggunakan relasi tabel guru | Mempermudah pembacaan laporan |
 
 Normalization:
-  Metode    : ____________________
-  Alasan    : ____________________
-  Parameter : (dihitung dari: training set / seluruh data)
+
+Metode    : Tidak dilakukan
+Alasan    : Data berupa identitas, tanggal, waktu, dan status sehingga tidak memerlukan normalisasi.
+Parameter : Tidak ada
 
 Leakage Check:
-  [ ] Parameter normalisasi dari training set saja
-  [ ] Tidak ada informasi test set dalam preprocessing
-  [ ] Cross-validation dilakukan setelah split
 
-Jumlah data akhir : ____________________
-Script tersedia   : [ ] Ya → path: ____ | [ ] Belum
+[✓] Tidak ada parameter normalisasi
+[✓] Tidak ada informasi yang bocor antar data
+[✓] Seluruh proses dilakukan setelah data berhasil tersimpan
+
+Jumlah data akhir : 5 data absensi
+
+Script tersedia : [✓] Ya → Laravel Controller dan Model
 ```
 
 ---
@@ -101,16 +108,18 @@ Script tersedia   : [ ] Ya → path: ____ | [ ] Belum
 
 Periksa dataset Anda (atau dataset contoh) dan dokumentasikan masalah yang ditemukan.
 
-| Masalah | Jumlah Kasus | Penanganan | Justifikasi |
-|---------|-------------|------------|-------------|
-| *Contoh: Missing di kolom "label"* | *12 dari 500 (2.4%)* | *Listwise deletion* | *< 5%, distribusi random (MCAR)* |
-| | | | |
-| | | | |
-| | | | |
+| Masalah              | Jumlah Kasus | Penanganan          | Justifikasi                                                                                |
+| -------------------- | ------------ | ------------------- | ------------------------------------------------------------------------------------------ |
+| Missing data         | 0            | Tidak ada           | Semua data hasil scan berhasil tersimpan ke database                                       |
+| Data duplikat        | 0            | Tidak ada           | Sistem hanya membuat satu data absensi setiap guru per hari, scan kedua mengisi jam pulang |
+| Error format tanggal | 0            | Format diseragamkan | Menggunakan tipe DATE pada database                                                        |
+| Error format jam     | 0            | Format diseragamkan | Menggunakan tipe TIME pada database                                                        |
+| Error status         | 0            | Validasi status     | Status hanya menggunakan nilai Hadir, Izin, Sakit, dan Alpha                               |
 
-**Jumlah data sebelum cleaning:** ____
-**Jumlah data setelah cleaning:** ____
-**Persentase data yang hilang/berubah:** ____%
+
+**Jumlah data sebelum cleaning:** 5
+**Jumlah data setelah cleaning:** 5
+**Persentase data yang hilang/berubah:** 0 %
 
 ---
 
@@ -118,18 +127,22 @@ Periksa dataset Anda (atau dataset contoh) dan dokumentasikan masalah yang ditem
 
 Tentukan apakah data Anda perlu normalisasi, dan jika ya, metode apa yang tepat.
 
-| Variabel | Range Asli | Distribusi | Outlier? | Metode Normalisasi | Alasan |
-|----------|-----------|-----------|----------|-------------------|--------|
-| *Contoh: response_time* | *0.1 – 45.2s* | *Right-skewed* | *Ya (45.2s)* | *Robust scaling* | *Ada outlier, perlu robust* || *Contoh: accuracy_score* | *0.72 – 0.95* | *Normal, narrow* | *Tidak* | *Tidak perlu* | *Sudah dalam [0,1], metode berbasis distance tidak digunakan* || | | | | | |
-| | | | | | |
+| Variabel   | Range Asli                | Distribusi | Outlier? | Metode Normalisasi | Alasan                            |
+| ---------- | ------------------------- | ---------- | -------- | ------------------ | --------------------------------- |
+| guru_id    | 1–5                       | Nomor urut | Tidak    | Tidak perlu        | Hanya sebagai identitas guru      |
+| tanggal    | Tanggal absensi           | Konsisten  | Tidak    | Tidak perlu        | Sudah menggunakan tipe DATE       |
+| jam_masuk  | 00:00–23:59               | Normal     | Tidak    | Tidak perlu        | Digunakan sebagai informasi waktu |
+| jam_pulang | 00:00–23:59               | Normal     | Tidak    | Tidak perlu        | Digunakan sebagai informasi waktu |
+| status     | Hadir, Izin, Sakit, Alpha | Kategori   | Tidak    | Tidak perlu        | Data kategorikal                  |
 
-**Apakah normalisasi diperlukan?** [ ] Ya / [ ] Tidak
+
+**Apakah normalisasi diperlukan?** [ ] Ya / [ya] Tidak
 **Justifikasi:**
-> ___________________________________________________
+> Normalisasi tidak diperlukan karena data penelitian berupa data identitas guru, tanggal, waktu absensi, dan status kehadiran. Variabel-variabel tersebut tidak digunakan untuk perhitungan berbasis jarak atau algoritma Machine Learning sehingga tidak memerlukan transformasi nilai numerik. Data sudah memiliki format yang seragam sesuai dengan tipe data pada database MySQL.
 
 **Leakage check:**
-- [ ] Parameter dihitung dari training set saja
-- [ ] Normalisasi diterapkan setelah train-test split
+- [ya] Parameter dihitung dari training set saja
+- [ya] Normalisasi diterapkan setelah train-test split
 
 ---
 
@@ -140,23 +153,52 @@ Buat ringkasan preprocessing lengkap — dokumentasi yang cukup bagi orang lain 
 ```
 PREPROCESSING SUMMARY
 
-1. Dataset: ____________________
-2. Data awal: ____ records, ____ features
-3. Cleaning:
-   - Missing values: ____ kasus, metode: ____
-   - Duplikat: ____ kasus, tindakan: ____
-   - Error: ____ kasus, tindakan: ____
-4. Transformation: ____________________
-5. Normalisasi: ____ (metode), parameter dari ____
-6. Data akhir: ____ records, ____ features
-7. Leakage check: [ ] Lulus / [ ] Ada masalah
+1. Dataset
+   Data Absensi Guru Berbasis QR Code
+
+2. Data awal
+   5 records
+   6 features
+   (guru_id, tanggal, jam_masuk, jam_pulang, status, created_at)
+
+3. Cleaning
+   - Missing values : 0 kasus
+     Metode : Tidak ada tindakan
+
+   - Duplikat : 0 kasus
+     Tindakan : Tidak ada
+
+   - Error format : 0 kasus
+     Tindakan : Validasi format tanggal, jam, dan status
+
+4. Transformation
+
+   - Mengubah format tampilan tanggal menjadi DD-MM-YYYY
+   - Menampilkan nama guru melalui relasi tabel guru
+   - Menyeragamkan format jam menjadi HH:mm:ss
+
+5. Normalisasi
+
+   Tidak dilakukan
+
+   Alasan:
+   Data penelitian berupa data kategorikal, tanggal, dan waktu sehingga tidak memerlukan normalisasi.
+
+6. Data akhir
+
+   5 records
+   6 features
+
+7. Leakage Check
+   [✓] Lulus
 ```
 
 ---
 
 ## Refleksi
 
-> Apakah Anda pernah melakukan normalisasi "karena biasa dilakukan" tanpa mempertimbangkan apakah benar-benar diperlukan? Apa risiko over-preprocessing?
+> Apakah Anda pernah melakukan normalisasi "karena biasa dilakukan" tanpa mempertimbangkan apakah benar-benar diperlukan?
+Pada penelitian ini saya tidak melakukan normalisasi data karena setelah mempelajari materi, saya memahami bahwa normalisasi hanya diperlukan pada jenis data tertentu, terutama untuk analisis statistik atau algoritma machine learning. Data yang digunakan dalam sistem absensi guru berupa identitas guru, tanggal, waktu, dan status kehadiran sehingga sudah memiliki format yang sesuai dan tidak memerlukan normalisasi.
 
-> ___________________________________________________
-> ___________________________________________________
+>  Apa risiko over-preprocessing?
+Over-preprocessing dapat menyebabkan perubahan pada data yang sebenarnya tidak diperlukan sehingga informasi asli dapat berkurang atau bahkan hilang. Selain itu, proses yang terlalu banyak juga dapat membuat hasil analisis menjadi kurang sesuai dengan kondisi nyata. Oleh karena itu, preprocessing hanya dilakukan pada bagian yang benar-benar diperlukan, seperti validasi format data, pengecekan data duplikat, dan memastikan tidak ada data yang hilang sebelum dilakukan analisis.
