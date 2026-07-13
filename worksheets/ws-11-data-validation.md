@@ -65,32 +65,34 @@ Jika gagal di langkah awal → tidak perlu lanjut.
 ```
 DATA VALIDATION CHECKLIST
 
+DATA VALIDATION CHECKLIST
+
 Completeness:
-  [ ] Semua skenario tercakup
-  [ ] Jumlah run sesuai rencana
-  [ ] Tidak ada file output hilang
-  Missing: ____ dari ____ data points
+  [✓] Semua skenario tercakup
+  [✓] Jumlah run sesuai rencana
+  [✓] Tidak ada file output hilang
+  Missing: 0 dari 5 data points
 
 Format Consistency:
-  [ ] Semua file format sama (CSV/JSON/...)
-  [ ] Header konsisten
-  [ ] Tipe data konsisten (numerik tetap numerik)
+  [✓] Semua data menggunakan format yang sama (Database MySQL dan hasil ekspor CSV/PDF)
+  [✓] Header konsisten
+  [✓] Tipe data konsisten (ID bertipe integer, tanggal bertipe date, jam bertipe time, status bertipe string)
 
 Range & Logic:
-  [ ] Nilai dalam range masuk akal
-  [ ] Tidak ada waktu negatif
-  [ ] Metrik 0–100%, tidak di luar range
-  Anomali ditemukan: ____________________
+  [✓] Nilai dalam range masuk akal
+  [✓] Tidak ada waktu negatif
+  [✓] Jam masuk dan jam pulang berada pada rentang 00:00–23:59
+  Anomali ditemukan:
+  Terdapat satu kali proses scan yang lebih lambat karena pencahayaan kurang optimal, namun setelah dilakukan pengujian ulang QR Code berhasil terbaca dan data tersimpan dengan benar.
 
 Cross-Validation:
-  [ ] Run identik → hasil mendekati
-  [ ] Trend konsisten dengan ekspektasi teori
+  [✓] Run identik menghasilkan data yang konsisten
+  [✓] Trend sesuai dengan ekspektasi, yaitu scan pertama mencatat jam masuk dan scan kedua pada hari yang sama mencatat jam pulang tanpa membuat data absensi baru.
 
 Keputusan:
-  [ ] Data siap analisis
+  [✓] Data siap analisis
   [ ] Perlu cleaning
-  [ ] Perlu re-run (skenario: ____)
-```
+  [ ] Perlu re-run (skenario: Tidak diperlukan)
 
 ---
 
@@ -98,45 +100,46 @@ Keputusan:
 
 Verifikasi apakah semua data yang direncanakan sudah terkumpul.
 
-| Skenario | Run Direncanakan | Run Tercatat | Missing | Alasan |
-|----------|-----------------|-------------|---------|--------|
-| *Contoh: BERT, DS-1* | *10* | *10* | *0* | *—* |
-| *LSTM, DS-3* | *10* | *8* | *2* | *OOM pada run 7 & 9* |
-| | | | | |
-| | | | | |
+Tahap ini dilakukan untuk memastikan bahwa seluruh skenario pengujian yang telah direncanakan benar-benar berhasil dijalankan dan seluruh data berhasil tersimpan pada database.
 
-**Total expected:** ____ | **Total actual:** ____ | **Missing:** ____
+| Skenario                 | Run Direncanakan | Run Tercatat | Missing | Alasan                                |
+| ------------------------ | ---------------- | ------------ | ------- | ------------------------------------- |
+| Scan QR Jam Masuk        | 2                | 2            | 0       | Seluruh data berhasil tersimpan       |
+| Scan QR Jam Pulang       | 2                | 2            | 0       | Seluruh data berhasil diperbarui      |
+| Penyimpanan Data Absensi | 1                | 1            | 0       | Data berhasil masuk ke tabel absensis |
+
+
+**Total expected:** 5 | **Total actual:** 5 | **Missing:** 0
 
 **Keputusan untuk data missing:**
-> ___________________________________________________
+> Seluruh data yang direncanakan berhasil dikumpulkan sehingga tidak diperlukan pengulangan eksperimen (re-run). Semua hasil pengujian dapat digunakan sebagai data penelitian.
 
 ---
 
 ## Latihan 2 — Anomaly Investigation
-
-Periksa data Anda untuk anomali. Gunakan metode IQR atau z-score.
+Karena penelitian ini bukan mengukur accuracy, maka metrik yang lebih sesuai adalah waktu proses scan QR Code (detik).
 
 **Dataset sampel (atau data Anda sendiri):**
+| Run | Waktu Scan (detik) |
+| --- | ------------------ |
+| 1   | 1,2                |
+| 2   | 1,4                |
+| 3   | 1,3                |
+| 4   | 4,8                |
+| 5   | 1,5                |
 
-| Run | Accuracy (%) |
-|-----|-------------|
-| 1 | *91.2* |
-| 2 | *90.8* |
-| 3 | *91.5* |
-| 4 | *78.3* |
-| 5 | *91.0* |
 
 **Deteksi outlier:**
-- Q1 = ____ | Q3 = ____ | IQR = ____
-- Batas bawah (Q1 - 1.5×IQR) = ____
-- Batas atas (Q3 + 1.5×IQR) = ____
-- Outlier terdeteksi: ____
+- Q1 = 1,25 | Q3 = 3,15 | IQR = 1,90
+- Batas bawah (Q1 - 1.5×IQR) =  1.25 − (1.5 × 1.90) = -1.60
+- Batas atas (Q3 + 1.5×IQR) =3.15 + (1.5 × 1.90) = 6.00
+- Outlier terdeteksi: Tidak terdapat outlier karena seluruh waktu proses scan masih berada pada rentang yang dapat diterima.
 
 **Investigasi (untuk setiap outlier):**
 
-| Outlier | Nilai | Kemungkinan Penyebab | Keputusan |
-|---------|-------|---------------------|-----------|
-| *Run 4* | *78.3* | *Contoh: thermal throttling setelah 3 run berturut* | *Re-run dengan cooling interval* |
+| Outlier | Nilai     | Kemungkinan Penyebab                                                                                                   | Keputusan                                                                                              |
+| ------- | --------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Run 4   | 4,8 detik | Pencahayaan kurang dan posisi QR Code kurang tepat sehingga kamera membutuhkan waktu lebih lama untuk membaca QR Code. | Pengujian diulang dengan pencahayaan yang lebih baik dan QR Code berhasil dipindai dalam waktu normal. |
 
 ---
 
@@ -144,18 +147,19 @@ Periksa data Anda untuk anomali. Gunakan metode IQR atau z-score.
 
 Buat laporan validasi ringkas untuk dataset eksperimen Anda.
 
-**1. Completeness:** ____% data terkumpul
-**2. Format:** [ ] Konsisten / [ ] Ada inkonsistensi: ____
-**3. Range check (anomali):** ____
-**4. Logic check:** [ ] Parameter sesuai plan / [ ] Ada ketidaksesuaian: ____
+**1. Completeness:** 100 % data terkumpul
+**2. Format:** [ya] Konsisten / [ ] Ada inkonsistensi: ____
+**3. Range check (anomali):** Tidak ditemukan nilai yang berada di luar batas logis. Beberapa pengujian menunjukkan waktu scan sedikit lebih lama akibat kondisi pencahayaan, namun data tetap valid dan berhasil tersimpan ke database.
+**4. Logic check:** [ya] Parameter sesuai plan / [ ] Ada ketidaksesuaian: ____
 
-**Kesimpulan:** [ ] Data siap analisis / [ ] Perlu tindakan: ____
+**Kesimpulan:** [ya] Data siap analisis / [ ] Perlu tindakan: ____
 
 ---
 
 ## Refleksi
 
-> Apa perbedaan antara "data yang benar" dan "data yang dipercaya"? Mengapa proses validasi formal diperlukan meskipun data dikumpulkan secara otomatis?
+- Apa perbedaan antara "data yang benar" dan "data yang dipercaya"? 
+Data yang benar adalah data yang berhasil direkam oleh sistem sesuai dengan hasil pengamatan pada saat eksperimen dilakukan. Namun, data yang dipercaya adalah data yang telah melalui proses validasi sehingga dapat dipastikan memiliki format yang benar, lengkap, konsisten, dan sesuai dengan rancangan penelitian. Dengan kata lain, data yang benar belum tentu dapat langsung dipercaya sebelum dilakukan proses validasi.
 
-> ___________________________________________________
-> ___________________________________________________
+- Mengapa proses validasi formal diperlukan meskipun data dikumpulkan secara otomatis?
+Meskipun sistem absensi berbasis QR Code melakukan pencatatan data secara otomatis ke dalam database, proses validasi tetap diperlukan karena kesalahan masih dapat terjadi, seperti QR Code yang tidak terbaca, data yang tidak tersimpan akibat gangguan sistem, atau ketidaksesuaian antara hasil scan dengan data yang muncul pada menu Absensi. Melalui validasi formal, setiap data diperiksa kembali dari aspek kelengkapan, konsistensi, dan logika sistem sehingga data yang digunakan dalam penelitian benar-benar dapat dipertanggungjawabkan dan menghasilkan analisis yang lebih akurat.
