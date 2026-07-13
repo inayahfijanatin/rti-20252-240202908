@@ -65,25 +65,37 @@ Keduanya **saling melengkapi**:
 ```
 RESULT PRESENTATION PLAN
 
-Research Question : ____________________
-Metrik Utama      : ____________________
+Research Question :
+Apakah sistem absensi guru berbasis QR Code yang dibangun menggunakan Laravel 12 mampu mencatat data absensi guru secara cepat, akurat, dan konsisten, baik pada saat jam masuk maupun jam pulang?
+
+Metrik Utama :
+1. Keberhasilan pembacaan QR Code
+2. Waktu proses scan QR Code
+3. Keberhasilan penyimpanan data ke database
+4. Ketepatan pencatatan jam masuk dan jam pulang
 
 Tabel Hasil:
-| Skenario | Metrik 1 (mean ± std) | Metrik 2 (mean ± std) | n |
-|----------|----------------------|----------------------|---|
-|          |                      |                      |   |
+
+| Skenario                    | Waktu Scan (mean ± std) | Keberhasilan Scan (mean ± std) | n |
+|-----------------------------|-------------------------|---------------------------------|---|
+| Scan QR Jam Masuk           | 1,35 ± 0,15 detik       | 100% ± 0%                       | 5 |
+| Scan QR Jam Pulang          | 1,42 ± 0,18 detik       | 100% ± 0%                       | 5 |
+| Penyimpanan Data Absensi    | 1,30 ± 0,12 detik       | 100% ± 0%                       | 5 |
 
 Visualisasi yang Direncanakan:
+
 | # | Jenis Grafik | Pesan Utama | Metrik |
 |---|-------------|-------------|--------|
-| 1 |             |             |        |
-| 2 |             |             |        |
+| 1 | Bar Chart | Perbandingan rata-rata waktu scan pada setiap skenario | Mean waktu scan |
+| 2 | Pie Chart | Persentase keberhasilan dan kegagalan proses scan QR Code | Status scan |
+| 3 | Line Chart | Konsistensi waktu proses scan pada setiap pengujian | Waktu scan setiap run |
 
 Bias Check:
-  [ ] Y-axis mulai dari 0 (atau dijustifikasi)
-  [ ] Error bar/CI ditampilkan
-  [ ] Semua data disertakan (tidak cherry-picked)
-  [ ] Tidak menggunakan 3D tanpa alasan
+
+[✓] Y-axis dimulai dari 0
+[✓] Error bar ditampilkan (mean ± std)
+[✓] Seluruh data ditampilkan (tidak memilih data tertentu)
+[✓] Tidak menggunakan grafik 3D
 ```
 
 ---
@@ -91,18 +103,18 @@ Bias Check:
 ## Latihan 1 — Tabel Hasil
 
 Buat tabel hasil eksperimen Anda (boleh dengan data simulasi jika belum punya data riil).
+| Skenario                     | Waktu Scan (mean ± std) | Tingkat Keberhasilan | n |
+| ---------------------------- | ----------------------- | -------------------- | - |
+| Scan QR Jam Masuk            | **1,35 ± 0,15 detik**   | **100% ± 0%**        | 5 |
+| Scan QR Jam Pulang           | **1,42 ± 0,18 detik**   | **100% ± 0%**        | 5 |
+| Penyimpanan Data ke Database | **1,30 ± 0,12 detik**   | **100% ± 0%**        | 5 |
 
-| Skenario | Metrik 1 (mean ± std) | Metrik 2 (mean ± std) | n |
-|----------|----------------------|----------------------|---|
-| *Contoh: BERT-base* | *88.4 ± 1.2%* | *45.2 ± 3.1 min* | *10* |
-| | | | |
-| | | | |
 
 **Checklist tabel:**
-- [ ] Self-contained (judul jelas, satuan ada, N tercantum)
-- [ ] Mean ± std (bukan single number)
-- [ ] Diurutkan berdasarkan metrik utama
-- [ ] Format konsisten di semua baris
+- [ya] Self-contained (judul jelas, satuan ada, N tercantum)
+- [ya] Mean ± std (bukan single number)
+- [ya] Diurutkan berdasarkan metrik utama
+- [ya] Format konsisten di semua baris
 
 ---
 
@@ -110,11 +122,12 @@ Buat tabel hasil eksperimen Anda (boleh dengan data simulasi jika belum punya da
 
 Rencanakan 2-3 grafik untuk menyajikan data dari Latihan 1. Setiap grafik = satu pesan.
 
-| # | Jenis Grafik | Pesan | Data yang Digunakan |
-|---|-------------|-------|---------------------|
-| 1 | *Contoh: Bar chart + error bar* | *Perbandingan accuracy antar 3 model* | *Mean accuracy ± std* |
-| 2 | *Box plot* | *Distribusi F1 per model* | *Semua run F1* |
-| 3 | *Scatter plot* | *Trade-off accuracy vs training time* | *Mean accuracy vs mean time* |
+| No | Jenis Grafik | Pesan                                                                                       | Data yang Digunakan            |
+| -- | ------------ | ------------------------------------------------------------------------------------------- | ------------------------------ |
+| 1  | Bar Chart    | Membandingkan rata-rata waktu scan QR Code pada jam masuk, jam pulang, dan penyimpanan data | Mean waktu scan                |
+| 2  | Pie Chart    | Menunjukkan persentase keberhasilan proses scan QR Code                                     | Jumlah scan berhasil dan gagal |
+| 3  | Line Chart   | Menunjukkan kestabilan waktu scan pada setiap proses pengujian                              | Data waktu scan seluruh run    |
+
 
 ---
 
@@ -124,22 +137,26 @@ Evaluasi visualisasi berikut untuk bias (skenario dari contoh):
 
 **Skenario:** Metode A = 91.2%, Metode B = 90.8%. Bar chart dengan Y-axis mulai dari 90%.
 
-| Pertanyaan | Jawaban |
-|-----------|---------|
-| Apakah Y-axis menyesatkan? | *Contoh: Ya — A terlihat 2× B padahal beda 0.4%* |
-| Apakah error bar ditampilkan? | |
-| Apakah semua kondisi ditampilkan? | |
-| Apa solusinya? | |
+| Pertanyaan                        | Jawaban                                                                                                                                           |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Apakah Y-axis menyesatkan?        | Tidak. Sumbu Y dimulai dari angka 0 sehingga tidak memperbesar perbedaan antar data.                                                              |
+| Apakah error bar ditampilkan?     | Ya. Nilai rata-rata ditampilkan bersama standar deviasi (mean ± std).                                                                             |
+| Apakah semua kondisi ditampilkan? | Ya. Seluruh hasil pengujian jam masuk, jam pulang, dan penyimpanan data disajikan tanpa menghilangkan data tertentu.                              |
+| Apa solusinya?                    | Tetap menggunakan skala yang konsisten, menampilkan seluruh data hasil eksperimen, dan menghindari penggunaan efek visual yang dapat menyesatkan. |
 
 **Evaluasi grafik Anda sendiri dari Latihan 2:**
-- [ ] Semua bias check lulus
+- [YA] Semua bias check lulus
+  Tidak ditemukan visualisasi yang berpotensi menyesatkan karena grafik menggunakan skala yang konsisten, seluruh data eksperimen ditampilkan, dan tidak menggunakan efek tiga dimensi.
 - [ ] Ada yang perlu diperbaiki: ____
 
 ---
 
 ## Refleksi
 
-> Mengapa tabel dan grafik keduanya diperlukan — tidak cukup salah satu saja? Pernahkah Anda membuat grafik yang (tanpa sengaja) menyesatkan?
-
+> Mengapa tabel dan grafik keduanya diperlukan — tidak cukup salah satu saja?
+Tabel dan grafik memiliki fungsi yang saling melengkapi dalam penyajian hasil penelitian. Tabel digunakan untuk menyajikan data secara rinci dan presisi, sehingga pembaca dapat mengetahui nilai setiap metrik dengan jelas. Sementara itu, grafik membantu menampilkan pola, tren, dan perbandingan antar hasil eksperimen secara visual sehingga informasi lebih mudah dipahami. Dengan menggabungkan tabel dan grafik, hasil penelitian menjadi lebih informatif, mudah dianalisis, dan mendukung proses pengambilan kesimpulan.
+> 
+> Pernahkah Anda membuat grafik yang (tanpa sengaja) menyesatkan?
+Pada awal pembuatan laporan, saya pernah membuat grafik yang hanya menampilkan hasil terbaik tanpa menyertakan seluruh data pengujian. Setelah mempelajari materi mengenai visualisasi data, saya memahami bahwa semua hasil eksperimen harus disajikan secara lengkap agar tidak menimbulkan bias. Oleh karena itu, pada penelitian ini saya menggunakan grafik dengan skala yang konsisten, menampilkan seluruh data hasil pengujian, serta menyertakan nilai rata-rata dan standar deviasi sehingga visualisasi yang dihasilkan lebih objektif dan dapat dipercaya.
 > ___________________________________________________
 > ___________________________________________________
