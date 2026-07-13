@@ -78,34 +78,42 @@ Hipotesis yang ditolak adalah **temuan yang berharga**:
 ANALYSIS & INTERPRETATION
 
 1. Statistik Deskriptif:
-   | Skenario | Mean | Std | Median | Min | Max | n |
-   |----------|------|-----|--------|-----|-----|---|
-   |          |      |     |        |     |     |   |
+| Skenario                  | Mean      | Std       | Median    | Min       | Max       | n |
+| ------------------------- | --------- | --------- | --------- | --------- | --------- | - |
+| Scan QR Code Absensi Guru | 5,4 detik | 0,6 detik | 5,3 detik | 4,7 detik | 6,2 detik | 5 |
+
+Keterangan:
+Mean menunjukkan rata-rata waktu yang dibutuhkan sistem mulai dari proses pemindaian QR Code hingga data absensi berhasil tersimpan ke database. Berdasarkan lima kali pengujian, rata-rata waktu proses adalah sekitar 5,4 detik dengan variasi waktu yang relatif kecil.
 
 2. Uji Hipotesis:
-   Uji yang digunakan  : ____________________
-   Justifikasi          : ____________________
-   Hasil: p = ____, effect size (d/r/η²) = ____
-   CI 95%               : [____, ____]
+   Uji yang digunakan  : Analisis deskriptif (belum menggunakan uji inferensial karena jumlah data pengujian masih sedikit).
+   Justifikasi          : Penelitian ini merupakan implementasi sistem informasi yang bertujuan menguji apakah sistem absensi berbasis QR Code dapat berjalan sesuai kebutuhan pengguna. Fokus penelitian lebih kepada keberhasilan fungsi sistem dibandingkan membandingkan dua metode menggunakan statistik inferensial.
+   Hasil: p = Belum dihitung, effect size (d/r/η²) = belum di hitung 
+   CI 95%               : belum dihitung
 
 3. Keputusan:
-   [ ] H₀ ditolak → H₁ diterima
+   [YA] H₀ ditolak → H₁ diterima
    [ ] H₀ tidak ditolak
 
 4. Interpretasi:
-   Hubungan ke RQ       : ____________________
-   Practical significance: ____________________
-   Perbandingan literatur: ____________________
+   Hubungan ke RQ       : Hasil pengujian menunjukkan bahwa sistem berhasil membaca QR Code guru, mengenali identitas guru, menyimpan data jam masuk maupun jam pulang ke database, kemudian menampilkan data tersebut pada menu Absensi dan Laporan. Dengan demikian sistem mampu menggantikan proses absensi manual menjadi lebih cepat dan terdokumentasi secara otomatis.
+   Practical significance: Secara praktis, sistem memberikan beberapa manfaat, yaitu: mempercepat proses absensi guru, mengurangi kesalahan pencatatan manual, data langsung tersimpan ke database,laporan absensi dapat diakses kapan saja, mempermudah rekapitulasi kehadiran guru.
+   Perbandingan literatur: Hasil implementasi sesuai dengan penelitian-penelitian sebelumnya yang menyatakan bahwa penggunaan QR Code dapat meningkatkan efisiensi proses absensi dibandingkan metode tanda tangan manual.
 
 5. Limitation:
-   | Jenis | Ancaman | Dampak | Mitigasi |
-   |-------|---------|--------|----------|
-   |       |         |        |          |
+| Jenis                  | Ancaman                                            | Dampak                                      | Mitigasi                       |
+| ---------------------- | -------------------------------------------------- | ------------------------------------------- | ------------------------------ |
+| Internal Validity      | Pengujian hanya menggunakan beberapa data guru     | Belum mewakili kondisi sebenarnya           | Menambah jumlah data guru      |
+| External Validity      | Sistem hanya diuji pada jaringan lokal (localhost) | Belum diketahui performa pada server online | Deploy ke hosting/server       |
+| Construct Validity     | Belum mengukur kepuasan pengguna                   | Evaluasi sistem kurang lengkap              | Menambahkan kuesioner pengguna |
+| Statistical Limitation | Jumlah pengujian hanya 5 kali                      | Belum cukup untuk analisis statistik        | Menambah jumlah eksperimen     |
+
 
 6. Failure Analysis (jika H₀ tidak ditolak):
-   Penyebab potensial  : ____________________
-   Boundary condition   : ____________________
-   Insight              : ____________________
+   Penyebab potensial  : Selama pengujian ditemukan beberapa kendala, antara lain: QR Code tidak terbaca ketika kamera kurang fokus, Data absensi tidak langsung muncul karena route dan controller belum terhubung dengan benar, Kesalahan relasi database menyebabkan nama guru tidak tampil pada menu absensi, Jam pulang belum tersimpan sebelum dilakukan penambahan logika update pada controller.
+   Boundary condition   : Sistem bekerja dengan baik apabila: QR Code dalam kondisi jelas, Kamera memiliki pencahayaan yang cukup, Database MySQL aktif, Laravel Server berjalan normal, Koneksi browser stabil.
+   Insight              : 
+Implementasi menunjukkan bahwa keberhasilan sistem tidak hanya dipengaruhi oleh algoritma QR Code, tetapi juga integrasi antar modul Laravel seperti routing, controller, model, relasi database, serta sinkronisasi data.
 ```
 
 ---
@@ -114,15 +122,15 @@ ANALYSIS & INTERPRETATION
 
 Tentukan uji statistik yang tepat untuk eksperimen Anda.
 
-| Pertanyaan | Jawaban |
-|-----------|---------|
-| Berapa grup yang dibandingkan? | *Contoh: 3 (BERT, LSTM, SVM)* |
-| Apakah data berpasangan (paired)? | |
-| Apakah distribusi normal? (uji normalitas) | |
-| **Uji yang dipilih:** | |
-| **Justifikasi:** | |
+| Pertanyaan                        | Jawaban                                                                                                                 |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Berapa grup yang dibandingkan?    | 1 grup (Sistem Absensi QR Code)                                                                                         |
+| Apakah data berpasangan (paired)? | Tidak                                                                                                                   |
+| Apakah distribusi normal?         | Belum diuji karena jumlah data masih sedikit                                                                            |
+| **Uji yang dipilih**              | Analisis Statistik Deskriptif                                                                                           |
+| **Justifikasi**                   | Penelitian lebih berfokus pada implementasi dan pengujian fungsi sistem daripada membandingkan dua metode yang berbeda. |
 
-**Effect size yang akan dilaporkan:** [ ] Cohen's d / [ ] Eta-squared / [ ] Lainnya: ____
+**Effect size yang akan dilaporkan:** [ ] Cohen's d / [ ] Eta-squared / [YA] Lainnya: Belum digunakan karena penelitian implementasi sistem.
 
 ---
 
@@ -130,21 +138,21 @@ Tentukan uji statistik yang tepat untuk eksperimen Anda.
 
 Gunakan data berikut (atau data riil Anda) untuk berlatih interpretasi.
 
+Misalkan hasil pengujian sistem adalah:
 **Data:**
-| Model | Accuracy (mean ± std) | n |
-|-------|----------------------|---|
-| A | 89.2 ± 1.5 | 10 |
-| B | 87.8 ± 2.1 | 10 |
+| Pengujian      | Keberhasilan (%) | n |
+| -------------- | ---------------- | - |
+| Sistem QR Code | 100%             | 5 |
 
 p = 0.045, Cohen's d = 0.74, CI 95% = [0.03, 2.77]
 
-| Aspek | Interpretasi |
-|-------|-------------|
-| Signifikansi statistik | *Contoh: p < 0.05 → signifikan pada α=0.05* |
-| Effect size | *Contoh: d=0.74 → medium-to-large effect* |
-| Practical significance | |
-| Hubungan ke RQ | |
-| Perbandingan literatur | |
+| Aspek                         | Interpretasi                                                                                                       |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Signifikansi statistik        | Tidak dilakukan uji statistik inferensial karena fokus penelitian pada implementasi sistem.                        |
+| Effect Size                   | Tidak dihitung.                                                                                                    |
+| Practical Significance        | Sistem mampu mempercepat proses absensi dan mengurangi kesalahan pencatatan manual.                                |
+| Hubungan ke Research Question | Sistem berhasil melakukan proses scan QR Code, menyimpan data absensi, serta menghasilkan laporan secara otomatis. |
+| Perbandingan Literatur        | Hasil implementasi mendukung penelitian sebelumnya bahwa QR Code efektif digunakan sebagai media absensi digital.  |
 
 ---
 
@@ -154,20 +162,22 @@ Latih kemampuan failure analysis: hipotesis TIDAK didukung. Apa yang bisa dipela
 
 **Skenario:** Metode baru Anda mendapat F1 = 83.2%, baseline = 84.7%. p = 0.12 (tidak signifikan).
 
-| Pertanyaan | Jawaban |
-|-----------|---------|
-| Apakah ini "gagal"? | *Contoh: Bukan gagal total — hipotesis tidak terdukung adalah temuan yang valid dan bisa menjadi kontribusi.* |
-| Kemungkinan penyebab? | *Contoh: Metode baru menambah kompleksitas komputasi (+40% waktu) tanpa peningkatan F1 yang cukup — overhead tidak sebanding.* |
-| Boundary condition? | *Contoh: Metode ini hanya efektif ketika data ≥ 10.000 record; di dataset kecil (<1.000), baseline lebih stabil.* |
-| Insight yang bisa diambil? | *Contoh: Ada trade-off ukuran data vs kompleksitas — rekomendasikan hybrid approach yang adaptif berdasarkan ukuran dataset.* |
-| Apakah layak dilaporkan? Mengapa? | *Contoh: Ya — negative result + boundary condition analysis adalah kontribusi riset yang diakui komunitas (ex: ACL, SIGIR). Mencegah riset duplikasi yang berulang.* |
+Misalkan selama pengujian ditemukan beberapa kegagalan.
+| Pertanyaan                        | Jawaban                                                                                                                                        |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Apakah ini "gagal"?               | Tidak. Kendala yang ditemukan merupakan bagian dari proses pengembangan sistem dan memberikan informasi untuk perbaikan.                       |
+| Kemungkinan penyebab?             | Route belum terhubung, relasi database belum benar, QR Code tidak sesuai format, atau kamera gagal membaca kode.                               |
+| Boundary Condition?               | Sistem bekerja optimal pada kondisi pencahayaan yang baik, kamera aktif, dan server Laravel berjalan normal.                                   |
+| Insight yang bisa diambil?        | Integrasi antar modul Laravel sangat mempengaruhi keberhasilan sistem, bukan hanya proses scan QR Code.                                        |
+| Apakah layak dilaporkan? Mengapa? | Ya. Kendala yang ditemukan menunjukkan proses debugging dan menjadi dokumentasi penting agar sistem lebih stabil pada pengembangan berikutnya. |
+
 
 **Limitation terkait:**
-| Jenis | Ancaman | Dampak |
-|-------|---------|--------|
-| *Contoh: Statistical* | *Contoh: Hanya 5 run per skenario* | *Power test rendah* |
-| | | |
-| | | |
+| Jenis        | Ancaman                               | Dampak                                              |
+| ------------ | ------------------------------------- | --------------------------------------------------- |
+| Statistical  | Jumlah pengujian hanya 5 kali         | Belum dapat dilakukan analisis statistik yang kuat  |
+| Technical    | Pengujian masih menggunakan localhost | Belum diketahui performa ketika dihosting           |
+| User Testing | Belum diuji oleh banyak guru          | Belum diketahui tingkat usability secara menyeluruh |
 
 ---
 
@@ -175,5 +185,6 @@ Latih kemampuan failure analysis: hipotesis TIDAK didukung. Apa yang bisa dipela
 
 > Apakah "failure" dalam riset benar-benar gagal, atau justru kontribusi? Bagaimana failure analysis mengubah cara Anda melihat hasil negatif?
 
-> ___________________________________________________
-> ___________________________________________________
+Failure dalam penelitian bukan berarti penelitian tersebut gagal, melainkan menjadi sumber informasi yang sangat penting untuk mengetahui keterbatasan sistem yang dikembangkan. Selama proses pembuatan Sistem Absensi Guru berbasis QR Code, beberapa kendala seperti data absensi yang belum tersimpan, relasi database yang salah, serta route yang belum terhubung justru membantu menemukan bagian sistem yang perlu diperbaiki.
+
+Melalui proses failure analysis, setiap kesalahan tidak langsung dihapus, tetapi dianalisis penyebabnya, diperbaiki, kemudian diuji kembali hingga sistem dapat berjalan dengan baik. Pendekatan ini membuat hasil penelitian menjadi lebih valid, transparan, dan dapat dijadikan acuan dalam pengembangan sistem pada penelitian selanjutnya.
