@@ -129,7 +129,7 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 | Field     | Contoh                |
 | --------- | -------------------   |
 | Run ID    | RUN-001               |
-| Timestamp | 13-07-2026 20:32:19   |
+| Timestamp | 13-07-2026 20:21:19   |
 | Nama Guru | Atik Kusuma Dewi, S.Pd|
 | NIP       | 3305184812920002      |
 | Skenario  | Scan QR Jam Masuk     |
@@ -153,8 +153,8 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 | ----------------- | --------- | -------------------- |
 | QR Code Terbaca   | Boolean   | True / False         |
 | Status Scan       | String    | Berhasil / Gagal     |
-| Jam Masuk         | Time      | 00:00–23:59          |
-| Jam Pulang        | Time      | 00:00–23:59          |
+| Jam Masuk         | Time      |   20:21:19           |
+| Jam Pulang        | Time      |      20:41:02        |
 | Status Kehadiran  | String    | Hadir / Izin / Alpha |
 | Data Tersimpan    | Boolean   | True / False         |
 | Waktu Proses Scan | Float     | > 0 detik            |
