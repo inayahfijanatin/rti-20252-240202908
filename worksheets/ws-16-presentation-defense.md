@@ -86,31 +86,23 @@ Prediksi pertanyaan berdasarkan kategori:
 DEFENSE PREPARATION
 
 Slide Deck Plan:
-  Total slides   : ____ (target: 10-12 konten + title/closing)
-  Time per slide : ~2 min
-  Total time     : ____ menit
+  Total slides   : 11 (10 slide materi + 1 penutup)
+  Time per slide : ±1,5 menit
+  Total time     : 15 menit
 
 Slide Outline:
 | # | Pesan Utama | Visual | Waktu |
 |---|-------------|--------|-------|
-| 1 | Title       |        | 30s   |
-| 2 | Problem     |        | 2min  |
-| 3 | Gap + RQ    |        | 2min  |
-| ..|             |        |       |
-
-Anticipatory Defense Matrix:
-| Kategori | Pertanyaan Potensial | Jawaban (CER) |
-|----------|---------------------|---------------|
-| Problem  |                     |               |
-| Gap      |                     |               |
-| Method   |                     |               |
-| Results  |                     |               |
-| Generalization |               |               |
-
-Latihan:
-  Latihan 1: [tanggal] — [catatan timing & feedback]
-  Latihan 2: [tanggal] — [catatan timing & feedback]
-  Latihan 3: [tanggal] — [catatan timing & feedback]
+| 1 | Judul penelitian dan identitas | Cover + logo sekolah | 30 detik |
+| 2 | Permasalahan absensi guru | Ilustrasi absensi manual | 2 menit |
+| 3 | Research Gap dan Research Question | Diagram gap penelitian | 2 menit |
+| 4 | Metode penelitian dan arsitektur sistem | Flowchart sistem | 2 menit |
+| 5 | Implementasi sistem | Screenshot Login, Dashboard, Data Guru | 2 menit |
+| 6 | Generate dan Scan QR Code | Screenshot QR Code dan proses scan | 2 menit |
+| 7 | Hasil pengujian sistem | Tabel Black Box Testing | 2 menit |
+| 8 | Kelebihan, keterbatasan, dan pengembangan | Diagram poin-poin | 1,5 menit |
+| 9 | Kesimpulan dan kontribusi | Ringkasan hasil penelitian | 1 menit |
+|10 | Sesi Tanya Jawab | Slide "Terima Kasih" | 30 detik |
 ```
 
 ---
@@ -118,20 +110,20 @@ Latihan:
 ## Latihan 1 — Slide Outline
 
 Rencanakan presentasi 15 menit untuk riset Anda.
+| No | Pesan Utama                                 | Visual yang Digunakan       | Waktu     |
+| -- | ------------------------------------------- | --------------------------- | --------- |
+| 1  | Judul penelitian dan identitas peneliti     | Cover + Logo                | 1 menit   |
+| 2  | Permasalahan absensi guru yang masih manual | Diagram permasalahan        | 2 menit   |
+| 3  | Research Gap dan Research Question          | Diagram Gap Penelitian      | 1,5 menit |
+| 4  | Metode penelitian dan desain sistem         | Flowchart Laravel + QR Code | 2 menit   |
+| 5  | Implementasi sistem                         | Screenshot Dashboard        | 2 menit   |
+| 6  | Proses Generate dan Scan QR Code            | Screenshot QR Code          | 2 menit   |
+| 7  | Hasil pengujian sistem                      | Tabel Black Box Testing     | 2 menit   |
+| 8  | Kelebihan, keterbatasan, dan pengembangan   | Diagram Future Work         | 1,5 menit |
+| 9  | Kesimpulan dan kontribusi penelitian        | Ringkasan poin utama        | 1 menit   |
 
-| # | Pesan Utama | Visual yang Digunakan | Waktu |
-|---|-------------|----------------------|-------|
-| 1 | *Contoh: Judul + konteks — rekomendasi vs kepuasan* | *Title slide, gambar sistem* | *1 min* |
-| 2 | *Contoh: Problem — RMSE tinggi tapi satisfaction rendah (45/100)* | *Bar chart: satisfaction vs RMSE per sistem* | *2 min* |
-| 3 | *Contoh: Gap + RQ — belum ada CF+context untuk satisfaction* | *Tabel gap literatur* | *1.5 min* |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
 
-**Total waktu estimasi:** ____ menit
+**Total waktu estimasi:** 15 menit
 
 ---
 
@@ -139,24 +131,26 @@ Rencanakan presentasi 15 menit untuk riset Anda.
 
 Prediksi 5 pertanyaan yang mungkin diajukan penguji, lalu siapkan jawaban CER.
 
-| # | Kategori | Pertanyaan | Claim | Evidence | Reasoning |
-|---|----------|-----------|-------|----------|-----------|
-| 1 | *Problem* | *Contoh: Mengapa fokus kepuasan, bukan akurasi?* | *Akurasi tinggi tidak menjamin kepuasan* | *Survey: 45/100 satisfaction meski RMSE 0.87* | *Gap antara metrik teknis dan pengalaman pengguna* |
-| 2 | *Method* | *Contoh: Mengapa hanya 3 dataset?* | *3 dataset mewakili variasi: small-clean, medium-clean, medium-noisy* | *Tabel karakteristik dataset di Bab Method* | *Generalisasi perlu validasi lanjut — tercatat sebagai limitasi* |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| No | Kategori       | Pertanyaan                                         | Claim                                                                        | Evidence                                                                               | Reasoning                                                                                                   |
+| -- | -------------- | -------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| 1  | Problem        | Mengapa memilih sistem absensi berbasis QR Code?   | QR Code lebih praktis dan ekonomis dibanding absensi manual.                 | Sistem berhasil mempercepat proses absensi dan mengurangi kesalahan pencatatan.        | QR Code dapat dibuat dengan mudah tanpa perangkat khusus sehingga cocok diterapkan di sekolah.              |
+| 2  | Method         | Mengapa menggunakan Laravel?                       | Laravel mempermudah pengembangan aplikasi web yang aman dan terstruktur.     | Laravel menyediakan fitur routing, authentication, migration, dan MVC.                 | Framework mempercepat proses pengembangan sekaligus memudahkan pemeliharaan aplikasi.                       |
+| 3  | Results        | Bagaimana membuktikan sistem berjalan dengan baik? | Seluruh fungsi sistem berhasil dijalankan.                                   | Hasil Black Box Testing menunjukkan semua fitur berjalan sesuai kebutuhan.             | Pengujian membuktikan bahwa fungsi login, CRUD guru, generate QR, scan QR, dan absensi bekerja dengan baik. |
+| 4  | Results        | Apa kelemahan sistem ini?                          | Sistem masih bergantung pada kamera dan pencahayaan.                         | Pengujian menunjukkan proses scan lebih lambat jika kondisi cahaya kurang baik.        | Faktor lingkungan memengaruhi keberhasilan pembacaan QR Code sehingga perlu diperhatikan saat implementasi. |
+| 5  | Generalization | Apakah sistem ini dapat digunakan di sekolah lain? | Ya, sistem dapat diterapkan di sekolah lain dengan sedikit penyesuaian data. | Data guru dan identitas sekolah dapat diubah melalui database dan pengaturan aplikasi. | Struktur sistem bersifat umum sehingga mudah diadaptasi oleh institusi lain.                                |
+
 
 ---
 
 ## Latihan 3 — Simulasi Q&A
 
 Minta teman/kolega mengajukan 3 pertanyaan tentang riset Anda. Catat pertanyaan dan evaluasi jawaban Anda.
+| No | Pertanyaan                                              | Jawaban Saya                                                                                                                                                                                                                                     | Evaluasi                       |
+| -- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------ |
+| 1  | Mengapa memilih QR Code dibanding fingerprint?          | QR Code tidak memerlukan perangkat fingerprint sehingga biaya implementasi lebih rendah dan proses pengembangan lebih sederhana.                                                                                                                 | ☑ Direct ☑ Data-based ☑ Honest |
+| 2  | Bagaimana jika QR Code difoto dan digunakan orang lain? | Saat ini sistem masih menggunakan QR Code statis sehingga terdapat potensi penyalahgunaan. Hal ini menjadi salah satu keterbatasan penelitian dan dapat dikembangkan dengan QR Code dinamis atau verifikasi tambahan pada penelitian berikutnya. | ☑ Direct ☑ Data-based ☑ Honest |
+| 3  | Mengapa tidak menggunakan aplikasi Android?             | Penelitian difokuskan pada aplikasi berbasis web menggunakan Laravel agar dapat diakses melalui browser tanpa instalasi aplikasi tambahan. Pengembangan aplikasi mobile dapat menjadi penelitian lanjutan.                                       | ☑ Direct ☑ Data-based ☑ Honest |
 
-| # | Pertanyaan | Jawaban Saya | Evaluasi |
-|---|-----------|-------------|---------|| *1* | *Contoh: "Mengapa tidak membandingkan dengan metode Y?"* | *Contoh: "Karena Y memerlukan dataset labeled yang tidak tersedia. Disebutkan sebagai limitasi di halaman X."* | *[✓] Direct [✓] Data-based [✓] Honest* || 1 | | | [ ] Direct [ ] Data-based [ ] Honest |
-| 2 | | | [ ] Direct [ ] Data-based [ ] Honest |
-| 3 | | | [ ] Direct [ ] Data-based [ ] Honest |
 
 **Pertanyaan yang paling sulit dijawab:**
 > ___________________________________________________
@@ -168,10 +162,9 @@ Minta teman/kolega mengajukan 3 pertanyaan tentang riset Anda. Catat pertanyaan 
 
 ## Refleksi
 
-> Dari seluruh proses WS-01 sampai WS-16 — dari paradigma riset hingga presentasi — bagian mana yang paling mengubah cara Anda berpikir tentang riset? Apa satu hal yang akan selalu Anda terapkan di riset berikutnya?
+> Bagaimana menjamin keamanan QR Code agar tidak dapat disalin atau disalahgunakan oleh pihak lain?
 
 **Insight terbesar:**
-> ___________________________________________________
-
+> Mempelajari lebih dalam mengenai keamanan sistem, autentikasi tambahan, QR Code dinamis, serta metode enkripsi agar dapat memberikan solusi yang lebih komprehensif saat sesi tanya jawab.
 **Yang akan selalu diterapkan:**
 > ___________________________________________________
