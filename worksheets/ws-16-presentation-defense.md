@@ -153,18 +153,15 @@ Minta teman/kolega mengajukan 3 pertanyaan tentang riset Anda. Catat pertanyaan 
 
 
 **Pertanyaan yang paling sulit dijawab:**
-> ___________________________________________________
+> Bagaimana menjamin keamanan QR Code agar tidak dapat disalin atau disalahgunakan oleh pihak lain?
 
 **Apa yang perlu disiapkan lebih baik:**
-> ___________________________________________________
+> Mempelajari lebih dalam mengenai keamanan sistem, autentikasi tambahan, QR Code dinamis, serta metode enkripsi agar dapat memberikan solusi yang lebih komprehensif saat sesi tanya jawab.
 
 ---
 
 ## Refleksi
-
-> Bagaimana menjamin keamanan QR Code agar tidak dapat disalin atau disalahgunakan oleh pihak lain?
-
-**Insight terbesar:**
-> Mempelajari lebih dalam mengenai keamanan sistem, autentikasi tambahan, QR Code dinamis, serta metode enkripsi agar dapat memberikan solusi yang lebih komprehensif saat sesi tanya jawab.
+**Insight terbesar**
+- Seluruh rangkaian WS-01 hingga WS-16 mengubah cara pandang saya bahwa penelitian bukan hanya proses membuat sebuah sistem, tetapi juga menyusun argumen ilmiah yang didukung oleh metode yang tepat, hasil yang valid, serta kemampuan mempertahankan hasil penelitian melalui presentasi dan sesi tanya jawab.
 **Yang akan selalu diterapkan:**
-> ___________________________________________________
+- Pada penelitian berikutnya saya akan selalu menyusun penelitian berdasarkan alur yang sistematis, mulai dari identifikasi masalah, penyusunan research question, pemilihan metode yang sesuai, pengujian yang objektif, hingga penyampaian hasil penelitian secara jelas, logis, dan didukung oleh bukti yang dapat dipertanggungjawabkan.
