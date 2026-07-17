@@ -1,6 +1,6 @@
 # 01 - Proposal Penelitian
 
-Folder ini berisi dokumen proposal penelitian yang menjadi dasar pelaksanaan penelitian **Rancang Bangun Sistem Absensi Guru Berbasis QR Code Menggunakan Framework Laravel**.
+Folder ini berisi dokumen proposal penelitian yang menjadi dasar pelaksanaan penelitian **Perancangan dan Implementasi Sistem Absensi Guru Berbasis QR Code Menggunakan Framework Laravel**.
 
 Proposal penelitian memuat latar belakang, rumusan masalah, tujuan penelitian, manfaat penelitian, tinjauan pustaka, metodologi penelitian, serta jadwal pelaksanaan penelitian.
 
