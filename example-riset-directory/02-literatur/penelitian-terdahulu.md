@@ -1,18 +1,6 @@
 # Penelitian Terdahulu
 
-Dokumen ini berisi hasil analisis terhadap penelitian-penelitian terdahulu yang berkaitan dengan **Sistem Absensi Guru Berbasis QR Code**, **Framework Laravel**, dan **pengembangan sistem informasi berbasis web**. Analisis ini bertujuan untuk mengetahui perkembangan penelitian yang telah dilakukan, mengidentifikasi kelebihan dan kekurangan penelitian sebelumnya, serta menentukan posisi penelitian yang dilakukan.
-
----
-
-# Tujuan Analisis Penelitian Terdahulu
-
-Analisis penelitian terdahulu dilakukan untuk:
-
-- Mengetahui perkembangan penelitian yang berkaitan dengan sistem absensi berbasis QR Code.
-- Mengidentifikasi metode dan teknologi yang digunakan pada penelitian sebelumnya.
-- Mengetahui kelebihan dan kekurangan penelitian terdahulu.
-- Menentukan kebaruan (novelty) penelitian yang dilakukan.
-- Menjadi dasar dalam penyusunan research gap.
+Dokumen ini berisi hasil analisis terhadap penelitian-penelitian terdahulu yang berkaitan dengan sistem absensi guru berbasis web, teknologi QR Code, dan Framework Laravel. Analisis dilakukan untuk mengetahui perkembangan penelitian yang telah dilakukan, mengidentifikasi kelebihan dan kekurangan penelitian sebelumnya, serta menentukan posisi penelitian yang dilakukan.
 
 ---
 
@@ -22,170 +10,92 @@ Analisis penelitian terdahulu dilakukan untuk:
 
 **Judul**
 
-...
+Perancangan Sistem Informasi Absensi Guru Menggunakan QR Code Berbasis Web (Studi Kasus: SDN 44 Kecamatan Bila Hulu Kabupaten Labuhan Batu)
 
 **Penulis**
 
-...
+Arfan Syamsuddin Dalimunthe, Leni Marlina, dan Barany Fachri
 
 **Tahun**
 
-...
+2026
 
-**Sumber**
+**Jurnal**
 
-...
+JUKTISI (Jurnal Komputer Teknologi Informasi dan Sistem Informasi)
+
+Volume 5 Nomor 1, Juni 2026.
+
+DOI: https://doi.org/10.62712/juktisi.v5i1.889
 
 ---
 
 ## Tujuan Penelitian
 
-...
+Penelitian ini bertujuan merancang dan membangun sistem informasi absensi guru berbasis web menggunakan teknologi QR Code untuk meningkatkan efisiensi proses pencatatan kehadiran guru di SDN 44 Kecamatan Bila Hulu Kabupaten Labuhan Batu. Sistem dikembangkan agar proses absensi menjadi lebih cepat, akurat, dan mudah dikelola dibandingkan metode pencatatan manual. :contentReference[oaicite:3]{index=3}
 
 ---
 
 ## Metode Penelitian
 
-...
+Metode pengembangan perangkat lunak yang digunakan adalah **Waterfall**, yang terdiri atas lima tahapan, yaitu:
 
----
+- Analisis kebutuhan
+- Desain sistem
+- Implementasi program
+- Pengujian sistem
+- Hasil akhir
 
-## Teknologi yang Digunakan
-
-- PHP
-- MySQL
-- QR Code
-- Framework Laravel (jika ada)
-
----
-
-## Hasil Penelitian
-
-...
-
----
-
-## Kelebihan
-
-- ...
-- ...
-- ...
-
----
-
-## Kekurangan
-
-- ...
-- ...
-- ...
-
----
-
-## Keterkaitan dengan Penelitian Ini
-
-Penelitian ini menjadi referensi dalam pengembangan sistem absensi berbasis QR Code. Namun penelitian yang dilakukan saat ini menggunakan Framework Laravel dengan implementasi fitur yang lebih lengkap, seperti pengelolaan data guru, generate QR Code, proses scan QR Code, pencatatan absensi, dan penyusunan laporan.
-
----
-
-# Penelitian 2
-
-## Identitas Penelitian
-
-**Judul**
-
-...
-
-**Penulis**
-
-...
-
-**Tahun**
-
-...
-
-**Sumber**
-
-...
-
----
-
-## Tujuan Penelitian
-
-...
-
----
-
-## Metode Penelitian
-
-...
-
----
-
-## Teknologi yang Digunakan
-
-...
+Implementasi sistem menggunakan teknologi berbasis web dengan bahasa pemrograman **HTML**, **PHP**, **JavaScript**, dan **MySQL** sebagai basis data. :contentReference[oaicite:4]{index=4}
 
 ---
 
 ## Hasil Penelitian
 
-...
+Hasil penelitian menunjukkan bahwa sistem berhasil dibangun dan mampu menyediakan berbagai fitur utama, antara lain:
+
+- Login admin dan guru.
+- Pengelolaan data guru.
+- Pengelolaan akun pengguna.
+- Proses absensi menggunakan QR Code.
+- Rekapitulasi absensi.
+- Pengajuan izin dan sakit.
+- Pembuatan laporan kehadiran guru.
+
+Seluruh fitur tersebut dapat diakses melalui aplikasi berbasis web sehingga memudahkan proses administrasi absensi di sekolah. :contentReference[oaicite:5]{index=5}
 
 ---
 
 ## Kelebihan
 
-- ...
-- ...
+Beberapa kelebihan penelitian ini antara lain:
+
+- Mengimplementasikan QR Code sebagai media absensi guru.
+- Menggunakan metode Waterfall yang sistematis.
+- Menyediakan fitur rekapitulasi absensi secara otomatis.
+- Memiliki fitur pengajuan izin dan sakit.
+- Mempermudah pembuatan laporan kehadiran guru.
+- Mengurangi kesalahan pencatatan yang sering terjadi pada sistem manual. :contentReference[oaicite:6]{index=6}
 
 ---
 
 ## Kekurangan
 
-- ...
-- ...
+Berdasarkan hasil analisis terhadap penelitian tersebut, masih terdapat beberapa keterbatasan, yaitu:
+
+- Implementasi masih menggunakan PHP konvensional dan belum memanfaatkan Framework Laravel.
+- Belum menampilkan dashboard statistik kehadiran.
+- Belum tersedia fitur ekspor laporan ke format PDF maupun Excel.
+- Belum dijelaskan mekanisme autentikasi dan pengamanan data pengguna secara lebih rinci.
 
 ---
 
 ## Keterkaitan dengan Penelitian Ini
 
-...
+Penelitian ini memiliki keterkaitan yang sangat erat karena sama-sama membahas pengembangan sistem absensi guru berbasis QR Code. Perbedaannya, penelitian yang dilakukan saat ini mengimplementasikan sistem menggunakan **Framework Laravel** sehingga memperoleh struktur aplikasi yang lebih terorganisasi melalui konsep Model-View-Controller (MVC). Selain itu, penelitian ini juga menambahkan fitur pengelolaan data guru, dashboard informasi, laporan absensi, serta pengembangan antarmuka yang lebih modern sehingga diharapkan mampu meningkatkan kemudahan penggunaan dan pengelolaan data absensi di lingkungan sekolah.
 
 ---
 
-# Penelitian 3
-
-(Struktur sama seperti penelitian sebelumnya)
-
----
-
-# Penelitian 4
-
-(Struktur sama seperti penelitian sebelumnya)
-
----
-
-# Penelitian 5
-
-(Struktur sama seperti penelitian sebelumnya)
-
----
-
-# Analisis Penelitian Terdahulu
-
-Berdasarkan hasil analisis terhadap penelitian-penelitian terdahulu, dapat disimpulkan bahwa penggunaan teknologi QR Code pada sistem absensi mampu meningkatkan efisiensi proses pencatatan kehadiran dibandingkan metode manual. Selain itu, penggunaan Framework Laravel memberikan kemudahan dalam proses pengembangan aplikasi karena menerapkan arsitektur Model-View-Controller (MVC), memiliki sistem keamanan yang baik, serta mendukung pengelolaan basis data secara terstruktur.
-
-Sebagian besar penelitian terdahulu telah berhasil membangun sistem absensi berbasis web. Namun demikian, masih terdapat beberapa aspek yang dapat dikembangkan lebih lanjut, seperti peningkatan antarmuka pengguna, integrasi pengelolaan data guru, penyajian laporan absensi secara otomatis, serta dokumentasi implementasi sistem yang lebih lengkap.
-
-Hasil analisis tersebut menjadi dasar dalam penyusunan penelitian **Perancangan dan Implementasi Sistem Absensi Guru Berbasis QR Code Menggunakan Framework Laravel**, sehingga sistem yang dikembangkan diharapkan mampu memberikan solusi yang lebih efektif dan sesuai dengan kebutuhan administrasi sekolah.
-
----
-
-# Kesimpulan
-
-Penelitian terdahulu menunjukkan bahwa implementasi QR Code pada sistem absensi memberikan manfaat dalam meningkatkan kecepatan dan akurasi pencatatan kehadiran. Berdasarkan hasil kajian tersebut, penelitian ini mengembangkan sistem absensi guru menggunakan Framework Laravel dengan pendekatan metode Waterfall dan pengujian Black Box Testing sebagai upaya menghasilkan sistem yang lebih terintegrasi, mudah digunakan, dan sesuai dengan kebutuhan pengguna.
-
----
 
 ## Status
 
