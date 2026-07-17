@@ -66,15 +66,15 @@ Dokumen ini berisi kronologi pelaksanaan penelitian mulai dari tahap penyusunan 
 
 | Tahap | Status |
 |------|:------:|
-| Tahap 1 — Proposal | ✅ Selesai |
-| Tahap 2 — Studi Literatur | ✅ Selesai |
-| Tahap 3 — Analisis Kebutuhan | ✅ Selesai |
-| Tahap 4 — Perancangan Sistem | ✅ Selesai |
-| Tahap 5 — Implementasi Sistem | ✅ Selesai |
-| Tahap 6 — Pengujian | ✅ Selesai |
-| Tahap 7 — Analisis Hasil | ✅ Selesai |
-| Tahap 8 — Penyusunan Laporan | ✅ Selesai |
-| Tahap 9 — Dokumentasi | ✅ Selesai |
+| Tahap 1 — Proposal | Selesai |
+| Tahap 2 — Studi Literatur | Selesai |
+| Tahap 3 — Analisis Kebutuhan | Selesai |
+| Tahap 4 — Perancangan Sistem | Selesai |
+| Tahap 5 — Implementasi Sistem | Selesai |
+| Tahap 6 — Pengujian | Selesai |
+| Tahap 7 — Analisis Hasil | Selesai |
+| Tahap 8 — Penyusunan Laporan | Selesai |
+| Tahap 9 — Dokumentasi | Selesai |
 
 ---
 
@@ -82,21 +82,21 @@ Dokumen ini berisi kronologi pelaksanaan penelitian mulai dari tahap penyusunan 
 
 | No | Komponen | Status |
 |----|----------|:------:|
-| 1 | Proposal Penelitian | ☑ Selesai |
-| 2 | Studi Literatur | ☑ Selesai |
-| 3 | Analisis Kebutuhan | ☑ Selesai |
-| 4 | Perancangan Sistem | ☑ Selesai |
-| 5 | Database MySQL | ☑ Selesai |
-| 6 | Implementasi Laravel | ☑ Selesai |
-| 7 | Login Sistem | ☑ Selesai |
-| 8 | Dashboard | ☑ Selesai |
-| 9 | CRUD Guru | ☑ Selesai |
-| 10 | Generate QR Code | ☑ Selesai |
-| 11 | Scan QR Code | ☑ Selesai |
-| 12 | Absensi Guru | ☑ Selesai |
-| 13 | Pengujian Black Box | ☑ Selesai |
-| 14 | Laporan Penelitian | ☑ Selesai |
-| 15 | Upload Repository GitHub | ☑ Selesai |
+| 1 | Proposal Penelitian |  Selesai |
+| 2 | Studi Literatur |  Selesai |
+| 3 | Analisis Kebutuhan | Selesai |
+| 4 | Perancangan Sistem |  Selesai |
+| 5 | Database MySQL |  Selesai |
+| 6 | Implementasi Laravel |  Selesai |
+| 7 | Login Sistem |  Selesai |
+| 8 | Dashboard |  Selesai |
+| 9 | CRUD Guru |  Selesai |
+| 10 | Generate QR Code |  Selesai |
+| 11 | Scan QR Code |  Selesai |
+| 12 | Absensi Guru |  Selesai |
+| 13 | Pengujian Black Box |  Selesai |
+| 14 | Laporan Penelitian |  Selesai |
+| 15 | Upload Repository GitHub |  Selesai |
 
 ---
 
