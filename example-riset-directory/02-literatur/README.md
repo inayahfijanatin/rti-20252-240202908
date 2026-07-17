@@ -1,8 +1,8 @@
-# 02 - Literatur
+# 02 - Studi Literatur
 
-Folder ini berisi berbagai referensi ilmiah yang digunakan sebagai landasan dalam penelitian **Rancang Bangun Sistem Absensi Guru Berbasis QR Code Menggunakan Framework Laravel**.
+Folder ini berisi dokumen studi literatur yang digunakan sebagai dasar penyusunan penelitian **Perancangan dan Implementasi Sistem Absensi Guru Berbasis QR Code Menggunakan Framework Laravel**.
 
-Studi literatur dilakukan untuk memperoleh teori, konsep, metode, dan hasil penelitian terdahulu yang relevan sehingga dapat menjadi dasar dalam perancangan, implementasi, dan analisis sistem yang dikembangkan.
+Studi literatur dilakukan dengan mengumpulkan, mempelajari, dan menganalisis berbagai buku, jurnal ilmiah, serta referensi lain yang berkaitan dengan sistem informasi, teknologi QR Code, Framework Laravel, metode pengembangan perangkat lunak, dan penelitian terdahulu yang relevan. Hasil kajian literatur menjadi landasan dalam penyusunan proposal, perancangan sistem, implementasi, hingga analisis hasil penelitian.
 
 ---
 
@@ -10,25 +10,27 @@ Studi literatur dilakukan untuk memperoleh teori, konsep, metode, dan hasil pene
 
 | Dokumen | Deskripsi |
 |---------|-----------|
-| [daftar-pustaka.pdf](daftar-pustaka.pdf) | Daftar referensi yang digunakan dalam penelitian. |
-| [jurnal-terdahulu.pdf](jurnal-terdahulu.pdf) | Kumpulan jurnal penelitian terdahulu yang relevan. |
-| [review-literatur.md](review-literatur.md) | Ringkasan hasil studi literatur dan analisis penelitian terdahulu. |
-| [matriks-literatur.xlsx](matriks-literatur.xlsx) | Matriks perbandingan penelitian terdahulu (opsional). |
+| `review-literatur.md` | Ringkasan hasil studi literatur yang digunakan dalam penelitian. |
+| `matriks-literatur.xlsx` | Matriks perbandingan penelitian terdahulu. |
+| `daftar-pustaka.bib` | Referensi penelitian dalam format BibTeX. |
+| `daftar-pustaka.pdf` | Daftar pustaka yang digunakan dalam penelitian. |
+| `jurnal/` | Kumpulan jurnal dan artikel ilmiah sebagai referensi penelitian. |
 
 ---
 
-## Topik Studi Literatur
+## Ruang Lingkup Studi Literatur
 
-Literatur yang dikaji dalam penelitian ini meliputi beberapa topik berikut.
+Kajian literatur pada penelitian ini mencakup beberapa topik utama, yaitu:
 
 - Sistem Informasi
-- Sistem Absensi
-- Quick Response (QR) Code
+- Sistem Absensi Guru
+- Teknologi QR Code
 - Framework Laravel
-- PHP
-- MySQL
+- Bahasa Pemrograman PHP
+- Database MySQL
+- Model Pengembangan Waterfall
 - Black Box Testing
-- Penelitian terdahulu mengenai sistem absensi berbasis QR Code
+- Penelitian terdahulu mengenai sistem absensi berbasis web
 
 ---
 
@@ -36,11 +38,26 @@ Literatur yang dikaji dalam penelitian ini meliputi beberapa topik berikut.
 
 Studi literatur dilakukan untuk:
 
-- Mengidentifikasi penelitian terdahulu yang relevan.
-- Menemukan research gap sebagai dasar penelitian.
-- Menentukan metode pengembangan sistem yang sesuai.
-- Memperkuat landasan teori penelitian.
-- Mendukung penyusunan Bab II (Tinjauan Pustaka).
+- Memahami konsep dan teori yang berkaitan dengan sistem absensi berbasis web.
+- Mengidentifikasi penelitian terdahulu yang relevan sebagai bahan perbandingan.
+- Menentukan metode pengembangan sistem yang sesuai dengan kebutuhan penelitian.
+- Menjadi landasan dalam proses analisis, perancangan, implementasi, dan pengujian sistem.
+- Mendukung penyusunan Bab II (Tinjauan Pustaka) pada laporan penelitian.
+
+---
+
+## Referensi Utama
+
+Beberapa referensi utama yang digunakan dalam penelitian ini meliputi:
+
+- Pressman, R. S., & Maxim, B. R. (2020). *Software Engineering: A Practitioner's Approach*.
+- Sommerville, I. (2020). *Software Engineering*.
+- Sugiyono. (2022). *Metode Penelitian Kuantitatif, Kualitatif, dan R&D*.
+- Rosa, A. S., & Shalahuddin, M. (2021). *Rekayasa Perangkat Lunak Terstruktur dan Berorientasi Objek*.
+- Enterprise, J. (2022). *Laravel untuk Pemula hingga Mahir*.
+- Nugroho, A. (2021). *Implementasi QR Code pada Sistem Absensi Berbasis Web*.
+- Pratama, I. P. A. E. (2021). *Pengembangan Sistem Informasi Absensi Berbasis Web Menggunakan Framework Laravel*.
+- Rahman, A., & Hidayat, T. (2022). *Penerapan Framework Laravel dalam Pengembangan Sistem Informasi Sekolah*.
 
 ---
 
@@ -53,7 +70,7 @@ Studi literatur dilakukan untuk:
 | [03-teori](../03-teori/) | Landasan teori |
 | [04-data](../04-data/) | Data penelitian |
 | [05-kode](../05-kode/) | Implementasi sistem |
-| [06-output](../06-output/) | Hasil pengujian |
+| [06-output](../06-output/) | Hasil implementasi dan pengujian |
 | [07-manuskrip](../07-manuskrip/) | Manuskrip penelitian |
 | [08-laporan](../08-laporan/) | Laporan penelitian |
 | [09-docs](../09-docs/) | Dokumentasi penelitian |
