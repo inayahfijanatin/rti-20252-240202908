@@ -1,18 +1,51 @@
-# 03-teori
+# 03 - Landasan Teori
 
-Arsitektur, desain, dan landasan teori sistem — hasil **Tahap 1**.
+Folder ini berisi seluruh landasan teori yang digunakan sebagai dasar dalam perancangan, implementasi, dan pengujian sistem pada penelitian berjudul:
 
-## Isi yang diharapkan
+> **Perancangan dan Implementasi Sistem Absensi Guru Berbasis QR Code Menggunakan Framework Laravel**
 
-- Diagram alur resolusi kunci (mitigasi JWKS flooding)
-- Skema database PostgreSQL (`signing_keys`, `rate_limit_counters`)
-- Skema Redis (positive/negative cache)
-- Diagram arsitektur komponen (Gateway, Redis, PostgreSQL)
+Landasan teori disusun berdasarkan buku, jurnal ilmiah, dokumentasi resmi, serta referensi akademik yang relevan. Setiap teori mendukung tahapan penelitian mulai dari analisis kebutuhan, perancangan sistem, implementasi aplikasi, hingga proses pengujian.
 
-## Berkas
+---
 
-- [arsitektur-dan-skema.md](arsitektur-dan-skema.md) — diagram Mermaid (arsitektur komponen, alur resolusi kunci, fail-closed/fail-open, ERD database), skema Redis, dan pemetaan ke implementasi kode
+## Isi Folder
 
-## Acuan
+| Dokumen | Deskripsi |
+|---------|-----------|
+| 01-sistem-informasi.md | Konsep dasar sistem informasi |
+| 02-sistem-absensi.md | Teori mengenai sistem absensi |
+| 03-qr-code.md | Konsep dan implementasi QR Code |
+| 04-framework-laravel.md | Framework Laravel |
+| 05-php.md | Bahasa pemrograman PHP |
+| 06-mysql.md | Basis data MySQL |
+| 07-bootstrap.md | Framework Bootstrap |
+| 08-metode-waterfall.md | Metode pengembangan sistem |
+| 09-black-box-testing.md | Metode pengujian sistem |
+| kerangka-pemikiran.md | Kerangka berpikir penelitian |
+| definisi-istilah.md | Daftar istilah penting |
 
-Detail teknis lengkap Tahap 1 (status: selesai): [../09-docs/tahap-1-arsitektur-dan-skema-database.md](../09-docs/tahap-1-arsitektur-dan-skema-database.md)
+---
+
+## Tujuan
+
+Folder ini bertujuan mendokumentasikan seluruh teori yang menjadi dasar penelitian sehingga setiap tahapan penelitian memiliki landasan ilmiah yang jelas dan dapat dipertanggungjawabkan.
+
+---
+
+## Navigasi
+
+| Folder | Keterangan |
+|--------|------------|
+| ../00-admin | Administrasi Penelitian |
+| ../01-proposal | Proposal Penelitian |
+| ../02-literatur | Studi Literatur |
+| ../04-data | Dataset dan Data Pendukung |
+| ../05-kode | Implementasi Sistem |
+| ../06-output | Hasil Implementasi |
+| ../07-manuskrip | Manuskrip Penelitian |
+| ../08-laporan | Laporan Penelitian |
+| ../09-docs | Dokumentasi |
+
+---
+
+**Status:** ✅ Selesai
