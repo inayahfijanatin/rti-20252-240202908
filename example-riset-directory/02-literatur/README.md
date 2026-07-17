@@ -1,4 +1,4 @@
-# 02 - Studi Literatur
+# 02 - Literatur
 
 Folder ini berisi dokumen studi literatur yang digunakan sebagai dasar penyusunan penelitian **Perancangan dan Implementasi Sistem Absensi Guru Berbasis QR Code Menggunakan Framework Laravel**.
 
