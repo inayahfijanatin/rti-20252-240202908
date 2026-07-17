@@ -1,13 +1,39 @@
-# 04-data
+# 04 - Data Penelitian
 
-Data mentah hasil pengujian — output dari **Tahap 3**, input untuk **Tahap 4**.
+Folder ini berisi data mentah (raw data) yang digunakan selama proses pengembangan dan pengujian Sistem Absensi Guru Berbasis QR Code Menggunakan Framework Laravel.
 
-## Isi yang diharapkan
+Data pada folder ini menjadi sumber utama dalam proses implementasi sistem, pengujian fungsional, serta penyusunan hasil penelitian. Seluruh data masih dalam bentuk asli dan belum diolah menjadi laporan maupun visualisasi.
 
-- Hasil pengujian k6 dalam format CSV/JSON, per kombinasi mode (`CACHE_MODE=none|hybrid`) × jenis traffic (legitimate/attack/mixed)
-- Metrik resource container (CPU, memori) PostgreSQL & Redis selama pengujian
-- Metadata eksekusi tiap run (timestamp, konfigurasi, durasi)
+---
+
+## Isi yang Diharapkan
+
+- Database MySQL hasil implementasi sistem (`absensi_qrcode.sql`)
+- Data master guru yang digunakan pada proses pengujian
+- Data akun pengguna (administrator)
+- Data absensi hasil proses scan QR Code
+- Struktur tabel database hasil migration Laravel
+- Data uji yang digunakan pada proses Black Box Testing
+
+---
 
 ## Catatan
 
-Data di folder ini bersifat mentah (raw) dan belum diolah. Hasil olahan (statistik, grafik) disimpan di [../06-output/](../06-output/).
+Seluruh data pada folder ini merupakan data mentah (raw data) yang digunakan selama penelitian.
+
+Hasil pengolahan data, dokumentasi pengujian, screenshot aplikasi, serta laporan analisis disimpan pada folder [../06-output/](../06-output/).
+
+---
+
+## Navigasi
+
+| Folder | Keterangan |
+|--------|------------|
+| [../03-teori](../03-teori/) | Landasan Teori |
+| [../05-kode](../05-kode/) | Implementasi Sistem |
+| [../06-output](../06-output/) | Hasil Pengujian |
+| [../08-laporan](../08-laporan/) | Laporan Penelitian |
+
+---
+
+**Status:** ✅ Selesai
