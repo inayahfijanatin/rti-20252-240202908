@@ -1,4 +1,4 @@
-# 00 - Administrasi Penelitian
+# 00 - Admin
 
 Folder ini berisi dokumen administrasi yang mendukung pelaksanaan penelitian mengenai **Rancang Bangun Sistem Absensi Guru Berbasis QR Code Menggunakan Framework Laravel**. Dokumen dalam folder ini digunakan untuk mencatat perkembangan penelitian, jadwal kegiatan, serta dokumentasi administrasi selama proses penelitian berlangsung.
 
