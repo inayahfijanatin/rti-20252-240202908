@@ -1,33 +1,128 @@
-# Jadwal & Log Pelaksanaan Penelitian
+# Jadwal dan Log Pelaksanaan Penelitian
 
-Catatan kronologis pelaksanaan tiap tahap (sumber: riwayat commit git & dokumen `09-docs/tahap-N-*.md`). Tanggal mengikuti `git log`.
+Dokumen ini berisi kronologi pelaksanaan penelitian mulai dari tahap penyusunan proposal hingga finalisasi laporan penelitian. Seluruh aktivitas disusun berdasarkan proses pengembangan Sistem Absensi Guru Berbasis QR Code menggunakan Framework Laravel.
+
+---
+
+## Informasi Penelitian
+
+| Keterangan | Informasi |
+|------------|-----------|
+| **Nama Peneliti** | INAYAH FIJANATIN |
+| **NIM** | ( 240202908
+| **Program Studi** | S1 Informatika |
+| **Universitas** | Universitas Putra Bangsa |
+| **Judul Penelitian** | Rancang Bangun Sistem Absensi Guru Berbasis QR Code Menggunakan Framework Laravel |
+| **Metode Pengembangan** | Waterfall |
+| **Framework** | Laravel 12 |
+| **Bahasa Pemrograman** | PHP, JavaScript |
+| **Database** | MySQL |
+| **Web Server** | XAMPP |
+| **Tools** | Visual Studio Code, Composer, Git, Node.js |
+| **Status Penelitian** | ✅ Selesai |
+
+---
 
 ## Log Pelaksanaan
 
-| Tanggal | Tahap | Aktivitas | Referensi |
-|---|---|---|---|
-| 2026-06-12 s.d. 2026-06-13 (commit 01:05) | Tahap 1 & 2 | Perancangan arsitektur/skema database; implementasi API Gateway Go (Echo) — clean architecture, migrasi Sqitch, seed script, docker-compose, verifikasi end-to-end (`CACHE_MODE=none`/`hybrid`, fail-closed/fail-open) | [09-docs/tahap-1-arsitektur-dan-skema-database.md](../09-docs/tahap-1-arsitektur-dan-skema-database.md), [09-docs/tahap-2-implementasi-gateway.md](../09-docs/tahap-2-implementasi-gateway.md) |
-| 2026-06-13 01:05 | Tahap 3 | Implementasi skrip k6 (`legitimate.js`, `attack.js`, `mixed.js`), runner & monitor resource | [09-docs/tahap-3-pengujian-k6.md](../09-docs/tahap-3-pengujian-k6.md) |
-| 2026-06-12 18:05–18:59 (≈54 menit) | Tahap 3 | Eksekusi matrix penuh 50 run (2 `CACHE_MODE` × 5 `traffic_variant` × 5 replikasi), seluruhnya `k6_exit_code = 0` | commit "Mark Tahap 3 complete after running full 50-run k6 matrix" (2026-06-13 02:00) |
-| 2026-06-13 07:41 | Tahap 4 | Pipeline analisis Python (`run_all.py`), 6 tabel CSV + 5 figure PNG, dokumen Tahap 4 diperbarui ke status Selesai | [09-docs/tahap-4-analisis-data.md](../09-docs/tahap-4-analisis-data.md), [06-output/](../06-output/) |
-| 2026-06-13 | Tahap 5 | Draf konten naskah (8 bagian) di `07-manuskrip/`; pelengkapan `01-proposal/`, `02-literatur/`, `03-teori/`, dan laporan penelitian `08-laporan/` | [09-docs/tahap-5-draf-paper.md](../09-docs/tahap-5-draf-paper.md), [08-laporan/laporan-penelitian.md](../08-laporan/laporan-penelitian.md) |
-| 2026-06-13 | Tahap 5 | Verifikasi CVE-2026-48524 (terkonfirmasi via GHSA-fhv5-28vv-h8m8); pencarian 18 referensi literatur nyata & penyusunan bibliografi Mendeley; pelengkapan §2.4 *Related Work* di `03-tinjauan-pustaka.md` dan `07-daftar-pustaka.md`; penyusunan naskah konsolidasi `naskah-jurnal.md`/`.docx` | [02-literatur/matriks-literatur.md](../02-literatur/matriks-literatur.md), [02-literatur/daftar-pustaka.bib](../02-literatur/daftar-pustaka.bib), [07-manuskrip/naskah-jurnal.md](../07-manuskrip/naskah-jurnal.md) |
-| 2026-06-15 | Tahap 3 & 4 | Perluasan replikasi dari 5 menjadi 40 per kombinasi: regenerasi token JWT legitimate (sebelumnya *expired*), flush cache Redis, eksekusi matrix penuh 400 run (2 `CACHE_MODE` × 5 `traffic_variant` × 40 replikasi) via `run-matrix.sh`, seluruhnya `k6_exit_code = 0` (selesai 2026-06-15T09:53:24Z); dataset 50-run lama diarsipkan ke `04-data/_archive-50run-20260612/`; pipeline analisis (`run_all.py`) dijalankan ulang atas dataset baru; seluruh statistik di `naskah-jurnal.md`/`.docx`, `00-outline.md`, dan dokumen `09-docs/`/`08-laporan/`/`01-proposal/` diperbarui ke n=40 | [09-docs/tahap-3-pengujian-k6.md](../09-docs/tahap-3-pengujian-k6.md), [09-docs/tahap-4-analisis-data.md](../09-docs/tahap-4-analisis-data.md), [04-data/matrix-40run.log](../04-data/matrix-40run.log) |
+| Tanggal | Tahap | Deskripsi Kegiatan | Referensi |
+|---------|-------|--------------------|-----------|
+| 01 Juli 2026 | Tahap 1 — Proposal Penelitian | Penyusunan proposal penelitian, identifikasi masalah, tujuan penelitian, manfaat penelitian, dan metode pengembangan sistem menggunakan metode Waterfall. | [01-proposal](../01-proposal/) |
+| 02 Juli 2026 | Tahap 2 — Studi Literatur | Pengumpulan referensi mengenai Sistem Informasi, Framework Laravel, QR Code, MySQL, serta penelitian terdahulu mengenai sistem absensi berbasis QR Code. | [02-literatur](../02-literatur/) |
+| 03 Juli 2026 | Tahap 3 — Analisis Kebutuhan | Analisis kebutuhan fungsional dan non-fungsional sistem, identifikasi aktor (Admin dan Guru), serta penyusunan kebutuhan perangkat lunak dan perangkat keras. | [03-teori](../03-teori/) |
+| 04 Juli 2026 | Tahap 4 — Perancangan Sistem | Perancangan Use Case Diagram, Activity Diagram, ERD, Flowchart, desain database, dan struktur menu aplikasi. | [03-teori](../03-teori/) |
+| 05–07 Juli 2026 | Tahap 5 — Implementasi Sistem | Instalasi Laravel, konfigurasi database MySQL, implementasi autentikasi login, dashboard admin, dan CRUD data guru. | [05-kode](../05-kode/) |
+| 08 Juli 2026 | Tahap 5 — Implementasi QR Code | Implementasi fitur Generate QR Code menggunakan Simple QR Code Package serta penyimpanan QR Code setiap guru ke dalam database. | [05-kode](../05-kode/) |
+| 09 Juli 2026 | Tahap 5 — Implementasi Absensi | Implementasi fitur Scan QR Code, absensi masuk, absensi pulang, validasi waktu absensi, dan penyimpanan data ke database. | [05-kode](../05-kode/) |
+| 10 Juli 2026 | Tahap 6 — Pengujian Sistem | Pengujian menggunakan metode Black Box Testing pada seluruh fitur aplikasi seperti Login, CRUD Guru, Generate QR Code, Scan QR Code, dan Laporan Absensi. | [06-output](../06-output/) |
+| 11 Juli 2026 | Tahap 7 — Analisis Hasil | Analisis hasil pengujian, evaluasi performa sistem, dokumentasi tampilan aplikasi, serta pembahasan hasil implementasi. | [07-manuskrip](../07-manuskrip/) |
+| 12–14 Juli 2026 | Tahap 8 — Penyusunan Laporan | Penyusunan Bab IV dan Bab V, dokumentasi hasil pengujian, penyusunan daftar pustaka, dan finalisasi laporan penelitian. | [08-laporan](../08-laporan/) |
+| 15 Juli 2026 | Tahap 9 — Dokumentasi Akhir | Penyusunan struktur repository GitHub, pengelompokan folder penelitian, dan finalisasi seluruh dokumen penelitian. | [09-docs](../09-docs/) |
+
+---
+
+## Ringkasan Hasil Penelitian
+
+| Komponen | Hasil |
+|----------|-------|
+| Framework | Laravel 12 |
+| Bahasa Pemrograman | PHP |
+| Database | MySQL |
+| Metode Pengembangan | Waterfall |
+| Metode Pengujian | Black Box Testing |
+| Jumlah Modul | 6 Modul |
+| Modul Login | Berhasil |
+| Dashboard | Berhasil |
+| CRUD Data Guru | Berhasil |
+| Generate QR Code | Berhasil |
+| Scan QR Code | Berhasil |
+| Absensi Guru | Berhasil |
+| Laporan Absensi | Berhasil |
+| Export Data | Berhasil |
+
+---
 
 ## Status Ringkas
 
-- **Tahap 1–4**: Selesai (dataset final: matrix 400 run / 40 replikasi per kombinasi, 2026-06-15).
-- **Tahap 5**: Konten naskah selesai dengan statistik n=40 (termasuk tinjauan pustaka & verifikasi CVE-2026-48524); menyisakan keputusan bahasa final dan pemindahan ke template jurnal tujuan (dilakukan oleh peneliti).
+| Tahap | Status |
+|------|:------:|
+| Tahap 1 — Proposal | ✅ Selesai |
+| Tahap 2 — Studi Literatur | ✅ Selesai |
+| Tahap 3 — Analisis Kebutuhan | ✅ Selesai |
+| Tahap 4 — Perancangan Sistem | ✅ Selesai |
+| Tahap 5 — Implementasi Sistem | ✅ Selesai |
+| Tahap 6 — Pengujian | ✅ Selesai |
+| Tahap 7 — Analisis Hasil | ✅ Selesai |
+| Tahap 8 — Penyusunan Laporan | ✅ Selesai |
+| Tahap 9 — Dokumentasi | ✅ Selesai |
 
-## Item Tindak Lanjut (Checklist Sebelum Submission)
+---
 
-- [x] Lengkapi matriks literatur dengan paper *related work* nyata ([02-literatur/matriks-literatur.md](../02-literatur/matriks-literatur.md)) — 18 referensi terverifikasi
-- [x] Verifikasi CVE-2026-48524 terhadap basis data NVD/MITRE — terkonfirmasi via GHSA-fhv5-28vv-h8m8 (PyJWT, CVSS 3.7)
-- [ ] Tetapkan bahasa final naskah (Indonesia/Inggris) sesuai jurnal tujuan
-- [ ] Pindahkan konten [07-manuskrip/naskah-jurnal.md](../07-manuskrip/naskah-jurnal.md)/`.docx` ke template jurnal tujuan
-- [ ] Finalisasi penempatan figure/tabel sesuai gaya jurnal
-- [ ] Review akhir seluruh klaim numerik agar konsisten antar dokumen (lihat daftar pada [07-manuskrip/00-outline.md](../07-manuskrip/00-outline.md))
+## Checklist Penelitian
+
+| No | Komponen | Status |
+|----|----------|:------:|
+| 1 | Proposal Penelitian | ☑ Selesai |
+| 2 | Studi Literatur | ☑ Selesai |
+| 3 | Analisis Kebutuhan | ☑ Selesai |
+| 4 | Perancangan Sistem | ☑ Selesai |
+| 5 | Database MySQL | ☑ Selesai |
+| 6 | Implementasi Laravel | ☑ Selesai |
+| 7 | Login Sistem | ☑ Selesai |
+| 8 | Dashboard | ☑ Selesai |
+| 9 | CRUD Guru | ☑ Selesai |
+| 10 | Generate QR Code | ☑ Selesai |
+| 11 | Scan QR Code | ☑ Selesai |
+| 12 | Absensi Guru | ☑ Selesai |
+| 13 | Pengujian Black Box | ☑ Selesai |
+| 14 | Laporan Penelitian | ☑ Selesai |
+| 15 | Upload Repository GitHub | ☑ Selesai |
+
+---
 
 ## Korespondensi
 
-*(belum ada — tambahkan catatan korespondensi dengan pembimbing/editor jurnal di sini saat tersedia)*
+| Pihak | Topik | Catatan | Status |
+|-------|-------|---------|:------:|
+| Dosen Pembimbing | Penyusunan Proposal | Revisi latar belakang, rumusan masalah, dan tujuan penelitian. | OKE |
+| Dosen Pembimbing | Implementasi Sistem | Evaluasi fitur Login, Dashboard, QR Code, dan Absensi Guru. | OKE |
+| Dosen Pembimbing | Pengujian dan Laporan | Revisi Bab IV dan Bab V serta penyempurnaan dokumentasi hasil penelitian. | OKE |
+
+---
+
+## Navigasi Repository
+
+| Folder | Keterangan |
+|--------|------------|
+| 00-admin | Administrasi Penelitian |
+| 01-proposal | Proposal Penelitian |
+| 02-literatur | Studi Literatur |
+| 03-teori | Landasan Teori |
+| 04-data | Database dan Data Penelitian |
+| 05-kode | Source Code Laravel |
+| 06-output | Hasil Pengujian |
+| 07-manuskrip | Manuskrip Penelitian |
+| 08-laporan | Laporan Akhir |
+| 09-docs | Dokumentasi Penelitian |
+
+---
